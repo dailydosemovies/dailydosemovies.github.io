@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Idea Generator</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+.container { max-width: 600px; margin: auto; }
+textarea, input { width: 100%; padding: 10px; margin-top: 10px; }
+button { padding: 12px; width: 100%; cursor: pointer; font-size: 16px; }
+.idea-box { background: #f7f7f7; padding: 15px; margin-top: 10px; border-radius: 8px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>🎥 Video Idea Generator</h2>
+
+<input type="text" id="topic" placeholder="Enter your niche or topic (e.g. fitness, MrBeast, food)">
+
+<button onclick="generateIdeas()">Generate Ideas</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+function generateIdeas() {
+    let topic = document.getElementById('topic').value;
+    if(topic === "") {
+        alert("Please enter a topic");
+        return;
+    }
+
+    let hooks = [
+        `I tried ${topic} for 30 days`,
+        `You won’t believe what happened with ${topic}`,
+        `Top 10 secrets about ${topic}`,
+        `How to start ${topic} with zero money`,
+        `This ${topic} trick changed everything`,
+        `I challenged myself to do ${topic}`,
+        `The dark side of ${topic}`,
+        `The truth behind ${topic}`,
+        `No one talks about this in ${topic}`,
+        `${topic} in 24 hours`
+    ];
+
+    let results = "";
+    hooks.forEach((hook, index) => {
+        results += `<div class="idea-box"><b>Idea ${index+1}:</b> ${hook}</div>`;
+    });
+
+    document.getElementById('result').innerHTML = results;
+}
+</script>
+
+</body>
+</html>
