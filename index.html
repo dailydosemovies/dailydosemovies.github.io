@@ -1,233 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DailyDoseMovies – Creator Tools (Ideas, Hashtags, Captions, Blogs)</title>
-  <meta name="description" content="Free creator tools – video idea generator, hashtag generator, caption generator, and blog outline generator for Reels, Shorts, TikTok and YouTube." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DailyDoseMovies – Creator Toolbox (Ideas, Hashtags, Captions, Blog)</title>
+  <meta name="description" content="Free creator tools — generate video ideas, hashtags, captions and blog outlines for Reels, Shorts, TikTok & YouTube. Fast, mobile-friendly tools to help creators publish more." />
+  <meta name="robots" content="index,follow" />
 
-  <!-- ✅ AdSense global script -->
+  <!-- AdSense Global Script: your client -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8787887450305192"
      crossorigin="anonymous"></script>
 
   <style>
-    :root {
-      --bg: #050816;
-      --card: #111827;
-      --accent: #1e88e5;
-      --accent-soft: #1e88e51a;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --border: #1f2933;
-      --radius: 12px;
+    :root{
+      --bg:#050816; --card:#0f1720; --accent:#1e88e5; --muted:#9ca3af; --text:#f7fafc; --radius:12px;
     }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #111827, #020617 60%);
-      color: var(--text);
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: #020617dd;
-      border-bottom: 1px solid #111827;
-    }
-
-    .nav-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      font-size: 18px;
-    }
-
-    .logo span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 10px;
-      font-size: 14px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      color: var(--text);
-    }
-
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-      font-size: 26px;
-      margin-bottom: 8px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 14px;
-      margin: 0;
-    }
-
-    .tools-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .tool-card {
-      background: linear-gradient(135deg, #020617, #020617);
-      border-radius: var(--radius);
-      padding: 18px 16px 20px;
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
-    }
-
-    .tool-card h2 {
-      margin: 0 0 4px;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .tool-card small {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    label {
-      display: block;
-      font-size: 13px;
-      margin: 14px 0 4px;
-    }
-
-    input[type="text"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 11px 10px;
-      border-radius: 8px;
-      border: 1px solid #1f2937;
-      background: #020617;
-      color: var(--text);
-      font-size: 14px;
-      outline: none;
-    }
-
-    input::placeholder,
-    textarea::placeholder { color: #4b5563; }
-
-    textarea { min-height: 60px; resize: vertical; }
-
-    button {
-      margin-top: 10px;
-      width: 100%;
-      padding: 11px 12px;
-      border-radius: 999px;
-      border: none;
-      background: var(--accent);
-      color: white;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    button:hover { background: #0f62b0; }
-
-    .btn-secondary {
-      margin-top: 8px;
-      width: 100%;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      background: transparent;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    .btn-secondary:hover {
-      background: #020617;
-      color: var(--text);
-    }
-
-    .results {
-      margin-top: 12px;
-      display: grid;
-      gap: 8px;
-      font-size: 14px;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #020617;
-      border: 1px solid #1f2937;
-      font-size: 13px;
-    }
-
-    .idea-box {
-      border-radius: 10px;
-      border: 1px solid #1f2937;
-      padding: 10px 10px;
-      background: #020617;
-      white-space: pre-line;
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 18px 12px 26px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .ad-block { margin: 18px 0; }
-
-    @media (min-width: 880px) {
-      .hero h1 { font-size: 30px; }
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;background:linear-gradient(180deg,#071025 0,#030411 100%);color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    header{position:sticky;top:0;z-index:30;background:rgba(2,6,23,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.03)}
+    .nav-inner{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;font-size:18px}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:10px;align-items:center}
+    .nav-links a{padding:6px 10px;border-radius:999px;color:var(--muted);font-size:14px}
+    .nav-links a:hover{background:rgba(30,136,229,.08);color:var(--text)}
+    main{max-width:980px;margin:18px auto;padding:18px}
+    .hero{text-align:center;padding:34px 12px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);box-shadow:0 8px 30px rgba(2,6,23,.6)}
+    .hero h1{margin:0 0 8px;font-size:22px}
+    .hero p{margin:0;color:var(--muted);line-height:1.6}
+    .content-block{margin:18px 0;padding:16px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,.02)}
+    .tools-grid{display:flex;flex-direction:column;gap:20px}
+    .tool-card{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.005));border:1px solid rgba(255,255,255,.02)}
+    h2{margin:0 0 6px;font-size:18px}
+    small{color:var(--muted);display:block;margin-bottom:10px}
+    label{display:block;color:var(--muted);font-size:13px;margin:8px 0 6px}
+    input[type="text"],select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.04);background:#021023;color:var(--text);font-size:15px}
+    textarea{min-height:80px}
+    .controls{display:flex;gap:10px;flex-direction:column}
+    .row{display:flex;gap:10px}
+    button{display:inline-block;padding:11px;border-radius:999px;border:none;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.06);color:var(--muted);font-weight:600}
+    .results{margin-top:12px;display:grid;gap:10px}
+    .idea-box{padding:10px;border-radius:10px;background:#021226;border:1px solid rgba(255,255,255,.02);white-space:pre-line}
+    .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:#021226;border:1px solid rgba(255,255,255,.02)}
+    .muted{color:var(--muted);font-size:13px}
+    footer{text-align:center;color:var(--muted);padding:22px 12px;margin-top:12px;border-top:1px solid rgba(255,255,255,.02)}
+    .ad-block{margin:18px 0}
+    @media(min-width:880px){.tools-grid{flex-direction:row;gap:16px}.tool-card{flex:1}}
   </style>
 </head>
 <body>
@@ -240,6 +60,9 @@
       <a href="#hashtags">Hashtags</a>
       <a href="#captions">Captions</a>
       <a href="#blog">Blog Tool</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -247,11 +70,23 @@
 <main>
   <section class="hero">
     <h1>Creator Toolbox for Reels, Shorts, TikTok & YouTube</h1>
-    <p>Generate video ideas, hashtags, captions and blog outlines – all in one place.</p>
+    <p>Generate video ideas, hashtags, captions and blog outlines — all on one mobile-friendly page. These free tools help creators publish faster, grow reach, and improve engagement without expensive software.</p>
   </section>
 
-  <!-- ✅ AD 1: under hero -->
-  <div class="ad-block">
+  <!-- IMPORTANT: Text content for AdSense review -->
+  <section class="content-block">
+    <h2>About DailyDoseMovies Tools</h2>
+    <p style="color:var(--muted);line-height:1.6;margin-top:8px">
+      DailyDoseMovies.store provides practical, original tools for digital creators focusing on short-form video platforms (Instagram Reels, YouTube Shorts, TikTok). Our mission is to help creators save time while producing better content — whether you need a scroll-stopping caption, a set of targeted hashtags, fresh video ideas, or an SEO-friendly blog outline to drive search traffic.
+      <br><br>
+      All tools run directly in your browser — no accounts, no trackers, and no complicated setup. The suggestions are generated using deterministic logic and randomization to keep ideas unique each time. We host the site using GitHub Pages; it is served over HTTPS and kept minimal for fast load times on mobile networks.
+      <br><br>
+      If you have questions or want us to add more tools (thumbnail ideas, hook generator, or content calendar), use the Contact page. We respect user privacy — see the Privacy Policy for details.
+    </p>
+  </section>
+
+  <!-- AD 1: Top -->
+  <div class="ad-block" aria-hidden="true">
     <!-- Daily Dose Movies -->
     <ins class="adsbygoogle"
          style="display:block"
@@ -262,15 +97,16 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <section class="tools-grid">
+  <!-- Tools grid (single column on mobile, multi-column on desktop) -->
+  <div class="tools-grid">
 
-    <!-- VIDEO IDEA GENERATOR -->
+    <!-- Video Ideas -->
     <section id="ideas" class="tool-card">
       <h2>🎥 Video Idea Generator</h2>
-      <small>Turn any topic into 10 unique, ready-to-record video concepts.</small>
+      <small>Turn a topic into 10 unique, ready-to-record video concepts.</small>
 
       <label for="ideaTopic">Topic / niche</label>
-      <input id="ideaTopic" type="text" placeholder="Example: fitness, comedy, horror movies, MrBeast" />
+      <input id="ideaTopic" type="text" placeholder="e.g. horror movies, fitness, food hacks, MrBeast">
 
       <label for="ideaStyle">Style</label>
       <select id="ideaStyle">
@@ -280,19 +116,21 @@
         <option value="story">Story / POV</option>
       </select>
 
-      <button onclick="generateIdeas()">Generate Video Ideas</button>
-      <button type="button" class="btn-secondary" onclick="copyIdeas()">Copy All Ideas</button>
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+        <button onclick="generateIdeas()">Generate Video Ideas</button>
+        <button class="btn-ghost" onclick="copyIdeas()">Copy All Ideas</button>
+      </div>
 
-      <div id="ideaResults" class="results"></div>
+      <div id="ideaResults" class="results" role="region" aria-live="polite"></div>
     </section>
 
-    <!-- HASHTAG GENERATOR -->
+    <!-- Hashtags -->
     <section id="hashtags" class="tool-card">
       <h2>#️⃣ Hashtag Generator</h2>
-      <small>Get a pack of hashtags for Reels, Shorts or TikTok.</small>
+      <small>Get a mix of broad + niche hashtags for your platform.</small>
 
       <label for="hashtagTopic">Topic / keyword</label>
-      <input id="hashtagTopic" type="text" placeholder="Example: gym motivation, travel vlog, meme" />
+      <input id="hashtagTopic" type="text" placeholder="e.g. travel vlog, gym motivation, meme">
 
       <label for="platform">Platform</label>
       <select id="platform">
@@ -302,66 +140,35 @@
         <option value="generic">All Platforms</option>
       </select>
 
-      <button onclick="generateHashtags()">Generate Hashtags</button>
-      <button type="button" class="btn-secondary" onclick="copyHashtags()">Copy Hashtags</button>
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+        <button onclick="generateHashtags()">Generate Hashtags</button>
+        <button class="btn-ghost" onclick="copyHashtags()">Copy Hashtags</button>
+      </div>
 
       <div id="hashtagResults" class="results"></div>
-      <div class="muted">Tip: Copy 10–15 hashtags per post, mix broad + niche tags.</div>
+      <div class="muted" style="margin-top:8px">Tip: copy 10–15 hashtags per post; mix popular + niche tags.</div>
     </section>
 
-    <!-- ✅ AD 2: between tools -->
-    <div class="ad-block">
-      <!-- Daily Dose Movies -->
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-8787887450305192"
-           data-ad-slot="9843438608"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <!-- CAPTION GENERATOR -->
+    <!-- Caption Generator -->
     <section id="captions" class="tool-card">
       <h2>✍️ Caption Generator</h2>
-      <small>Create scroll-stopping captions with hooks & CTAs.</small>
+      <small>Scroll-stopping captions with hooks & CTAs.</small>
 
       <label for="captionTopic">What is your video about?</label>
-      <textarea id="captionTopic" placeholder="Example: funny reaction to horror movie scene"></textarea>
+      <textarea id="captionTopic" placeholder="e.g. funny reaction to a movie scene"></textarea>
 
-      <button onclick="generateCaptions()">Generate Captions</button>
-      <button type="button" class="btn-secondary" onclick="copyCaptions()">Copy Captions</button>
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+        <button onclick="generateCaptions()">Generate Captions</button>
+        <button class="btn-ghost" onclick="copyCaptions()">Copy Captions</button>
+      </div>
 
       <div id="captionResults" class="results"></div>
     </section>
 
-    <!-- BLOG / ARTICLE GENERATOR -->
-    <section id="blog" class="tool-card">
-      <h2>📝 Blog & SEO Outline Generator</h2>
-      <small>Get blog title ideas and H2 outline for long-form content.</small>
+  </div> <!-- end tools-grid -->
 
-      <label for="blogTopic">Main topic / keyword</label>
-      <input id="blogTopic" type="text" placeholder="Example: best horror movies on Netflix, how to grow on Instagram Reels" />
-
-      <label for="blogType">Article type</label>
-      <select id="blogType">
-        <option value="review">Review / Opinion</option>
-        <option value="listicle">Top 10 / Listicle</option>
-        <option value="tutorial">How-to / Guide</option>
-        <option value="news">News / Trend</option>
-      </select>
-
-      <button onclick="generateBlog()">Generate Blog Idea & Outline</button>
-      <button type="button" class="btn-secondary" onclick="copyBlog()">Copy Blog Outline</button>
-
-      <div id="blogResults" class="results"></div>
-    </section>
-
-  </section>
-
-  <!-- ✅ AD 3: bottom above footer -->
-  <div class="ad-block">
-    <!-- Daily Dose Movies -->
+  <!-- AD 2: Mid page -->
+  <div class="ad-block" aria-hidden="true">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-8787887450305192"
@@ -371,150 +178,136 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
+  <!-- Blog / Outline generator (same page) -->
+  <section id="blog" class="tool-card content-block" style="margin-top:12px">
+    <h2>📝 Blog & SEO Outline Generator</h2>
+    <small>Create title ideas and an H2 outline for long-form posts.</small>
+
+    <label for="blogTopic">Main topic / keyword</label>
+    <input id="blogTopic" type="text" placeholder="e.g. best horror movies on Netflix, how to grow on Instagram Reels">
+
+    <label for="blogType">Article type</label>
+    <select id="blogType">
+      <option value="listicle">Listicle (Top 10)</option>
+      <option value="tutorial">How-to / Guide</option>
+      <option value="review">Review / Opinion</option>
+      <option value="news">News / Trend</option>
+    </select>
+
+    <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+      <button onclick="generateBlog()">Generate Blog Idea & Outline</button>
+      <button class="btn-ghost" onclick="copyBlog()">Copy Blog Outline</button>
+    </div>
+
+    <div id="blogResults" class="results" style="margin-top:12px"></div>
+  </section>
+
+  <!-- AD 3: Bottom -->
+  <div class="ad-block" aria-hidden="true">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-8787887450305192"
+         data-ad-slot="9843438608"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <footer>
+    <div style="max-width:980px;margin:0 auto;padding:10px 16px">
+      <div class="muted">© 2025 DailyDoseMovies — Free creator tools for short-form video makers.</div>
+      <div style="margin-top:8px"><a href="/about.html">About</a> • <a href="/privacy.html">Privacy</a> • <a href="/terms.html">Terms</a> • <a href="/contact.html">Contact</a></div>
+    </div>
+  </footer>
 </main>
 
-<footer>
-  © 2025 dailydosemovies.store – Free tools for creators.
-</footer>
-
 <script>
+  // --- Helpers & global state
   let latestIdeasText = "";
   let latestHashtagsText = "";
   let latestCaptionsText = "";
   let latestBlogText = "";
 
-  function cleanTopic(text) {
-    return text.trim();
-  }
+  function cleanTopic(text){ return (text||"").toString().trim(); }
 
-  // 🎥 VIDEO IDEAS
-  function generateIdeas() {
+  // --- Video Ideas (improved)
+  function generateIdeas(){
     const topic = cleanTopic(document.getElementById("ideaTopic").value);
     const style = document.getElementById("ideaStyle").value;
     const container = document.getElementById("ideaResults");
-
-    if (!topic) {
-      alert("Please enter a topic for ideas.");
-      return;
-    }
+    if(!topic){ alert("Please enter a topic for ideas."); return; }
 
     const challenge = [
-      `24 hours doing ONLY ${topic} – can I survive?`,
-      `I tried ${topic} every day for 7 days – results`,
+      `24 hours doing ONLY ${topic} — can I survive?`,
+      `I tried ${topic} every day for 7 days — results were surprising`,
       `I let my followers control my ${topic} for a day`,
-      `${topic} on hard mode – no excuses challenge`,
+      `${topic} on hard mode — no excuses challenge`,
       `If I fail this ${topic} challenge, I owe you ₹10,000`
     ];
-
     const educational = [
       `Top 5 mistakes everyone makes in ${topic} (and how to fix them)`,
-      `${topic} for beginners – everything I wish I knew`,
+      `${topic} for beginners — everything I wish I knew`,
       `${topic} hacks that actually work (no fluff)`,
-      `I tried “expert” ${topic} tips so you don’t have to`,
-      `${topic} in 60 seconds – simple breakdown`
+      `I tested "expert" ${topic} tips so you don't have to`,
+      `${topic} in 60 seconds — simple breakdown`
     ];
-
     const story = [
-      `POV: You finally take ${topic} seriously`,
-      `How ${topic} completely changed my life`,
+      `POV: You finally try ${topic} — here's what happens`,
+      `How ${topic} changed my life (short story)`,
       `I almost quit ${topic}… then this happened`,
       `The dark side of ${topic} nobody talks about`,
-      `Doing ${topic} with my friends – pure chaos`
+      `Doing ${topic} with friends — chaos ensues`
     ];
 
     let pool = [...challenge, ...educational, ...story];
-    if (style === "challenge") pool = [...challenge, ...pool];
-    if (style === "educational") pool = [...educational, ...pool];
-    if (style === "story") pool = [...story, ...pool];
+    if(style==="challenge") pool = [...challenge,...pool];
+    if(style==="educational") pool = [...educational,...pool];
+    if(style==="story") pool = [...story,...pool];
 
-    pool = pool.sort(() => Math.random() - 0.5);
-    const selected = pool.slice(0, 10);
-
-    latestIdeasText = selected.join("\n");
-    container.innerHTML = selected
-      .map((idea, i) => `<div class="idea-box"><b>Idea ${i + 1}:</b> ${idea}</div>`)
-      .join("");
+    pool = pool.sort(()=>Math.random()-0.5);
+    const selected = pool.slice(0,10);
+    latestIdeasText = selected.join("\n\n");
+    container.innerHTML = selected.map((s,i)=>`<div class="idea-box"><strong>Idea ${i+1}:</strong> ${s}</div>`).join("");
   }
 
-  function copyIdeas() {
-    if (!latestIdeasText) {
-      alert("Generate ideas first, then copy.");
-      return;
-    }
-    copyToClipboard(latestIdeasText, "Ideas copied to clipboard!");
+  function copyIdeas(){
+    if(!latestIdeasText){ alert("Generate ideas first."); return; }
+    copyToClipboard(latestIdeasText,"Ideas copied to clipboard!");
   }
 
-  // #️⃣ HASHTAGS
-  function generateHashtags() {
-    const raw = document.getElementById("hashtagTopic").value;
+  // --- Hashtags
+  function generateHashtags(){
+    const raw = cleanTopic(document.getElementById("hashtagTopic").value);
     const platform = document.getElementById("platform").value;
     const container = document.getElementById("hashtagResults");
+    if(!raw){ alert("Please enter a topic for hashtags."); return; }
 
-    const topic = cleanTopic(raw);
-    if (!topic) {
-      alert("Please enter a topic for hashtags.");
-      return;
-    }
-
-    const base = topic
-      .toLowerCase()
-      .replace(/[^\w\s]/g, "")
-      .split(/\s+/)
-      .filter(Boolean);
-
+    const base = raw.toLowerCase().replace(/[^\w\s]/g,"").split(/\s+/).filter(Boolean);
     const joined = base.join("");
-    const mainTag = "#" + joined;
-    const spacedTag = "#" + base.join("_");
-
-    const generic = [
-      mainTag,
-      spacedTag,
-      "#" + joined + "vibes",
-      "#" + joined + "daily",
-      "#viral",
-      "#trending",
-      "#explore",
-      "#explorepage"
-    ];
-
+    const spaced = base.join("_");
+    const generic = ["#"+joined, "#"+spaced, "#"+joined+"vibes", "#"+joined+"daily", "#viral", "#trending", "#explore", "#explorepage"];
     let platformTags = [];
-    if (platform === "reels") {
-      platformTags = ["#reels", "#reelsinstagram", "#reelitfeelit", "#reelsindia", "#reelsvideo", "#reelsdaily"];
-    } else if (platform === "shorts") {
-      platformTags = ["#shorts", "#youtubeshorts", "#shortsvideo", "#shortsindia"];
-    } else if (platform === "tiktok") {
-      platformTags = ["#tiktok", "#fyp", "#foryou", "#tiktokindia", "#tiktoktrend"];
-    } else {
-      platformTags = ["#contentcreator", "#creator", "#videocreator"];
-    }
+    if(platform==="reels"){ platformTags = ["#reels","#reelsinstagram","#reelitfeelit","#reelsvideo","#reelsdaily"]; }
+    else if(platform==="shorts"){ platformTags = ["#shorts","#youtubeshorts","#shortsvideo"]; }
+    else if(platform==="tiktok"){ platformTags = ["#tiktok","#fyp","#foryou","#tiktoktrend"]; }
+    else { platformTags = ["#contentcreator","#creator","#videocreator"]; }
 
-    const niche = base.map((word) => "#" + word);
-
-    const all = [...new Set([...generic, ...platformTags, ...niche])].slice(0, 24);
-
+    const niche = base.map(w=>"#"+w);
+    const all = Array.from(new Set([...generic,...platformTags,...niche])).slice(0,24);
     latestHashtagsText = all.join(" ");
-    container.innerHTML =
-      `<div class="pill">${all.join("  ")}</div>` +
-      `<div class="muted">Tap and hold to select & copy, or use the copy button.</div>`;
+    container.innerHTML = `<div class="pill">${all.join("  ")}</div><div class="muted" style="margin-top:8px">Tap & hold to copy or use the button.</div>`;
   }
 
-  function copyHashtags() {
-    if (!latestHashtagsText) {
-      alert("Generate hashtags first, then copy.");
-      return;
-    }
-    copyToClipboard(latestHashtagsText, "Hashtags copied to clipboard!");
+  function copyHashtags(){
+    if(!latestHashtagsText){ alert("Generate hashtags first."); return; }
+    copyToClipboard(latestHashtagsText,"Hashtags copied to clipboard!");
   }
 
-  // ✍️ CAPTIONS
-  function generateCaptions() {
+  // --- Captions
+  function generateCaptions(){
     const topic = cleanTopic(document.getElementById("captionTopic").value);
     const container = document.getElementById("captionResults");
-
-    if (!topic) {
-      alert("Please describe your video for captions.");
-      return;
-    }
+    if(!topic){ alert("Please describe your video for captions."); return; }
 
     const caps = [
       `POV: ${topic} 👀`,
@@ -527,136 +320,102 @@
       `Doing ${topic} so you don’t have to 😅`,
       `One day this will blow up. For now it’s just us and ${topic}.`,
       `Drop a 🔥 if you want part 2 of ${topic}.`
-    ].sort(() => Math.random() - 0.5);
+    ].sort(()=>Math.random()-0.5);
 
-    latestCaptionsText = caps.join("\n");
-    container.innerHTML = caps
-      .map((c) => `<div class="idea-box">${c}</div>`)
-      .join("");
+    latestCaptionsText = caps.join("\n\n");
+    container.innerHTML = caps.map(c=>`<div class="idea-box">${c}</div>`).join("");
   }
 
-  function copyCaptions() {
-    if (!latestCaptionsText) {
-      alert("Generate captions first, then copy.");
-      return;
-    }
-    copyToClipboard(latestCaptionsText, "Captions copied to clipboard!");
+  function copyCaptions(){
+    if(!latestCaptionsText){ alert("Generate captions first."); return; }
+    copyToClipboard(latestCaptionsText,"Captions copied to clipboard!");
   }
 
-  // 📝 BLOG GENERATOR
-  function generateBlog() {
+  // --- Blog / Outline
+  function generateBlog(){
     const topic = cleanTopic(document.getElementById("blogTopic").value);
     const type = document.getElementById("blogType").value;
     const container = document.getElementById("blogResults");
+    if(!topic){ alert("Please enter a topic for the blog."); return; }
 
-    if (!topic) {
-      alert("Please enter a topic for the blog.");
-      return;
-    }
-
-    let title = "";
-    let outline = [];
-
-    if (type === "listicle") {
-      title = `Top 10 ${topic} – Complete List & Recommendations`;
+    let title="", outline=[];
+    if(type==="listicle"){
+      title = `Top 10 ${topic} — Complete List & Recommendations`;
       outline = [
-        "Intro – why this topic matters now",
-        "How we selected these picks",
-        "H2 – Pick #1",
-        "H2 – Pick #2",
-        "H2 – Pick #3",
-        "H2 – Picks #4–7 (quick breakdown)",
-        "H2 – Picks #8–10 (underrated gems)",
-        "How to choose the best option for you",
-        "FAQ section",
-        "Conclusion + CTA (watch / subscribe / follow)"
+        "Intro — why this topic matters",
+        "How we picked these items",
+        "H2 — Pick #1",
+        "H2 — Pick #2",
+        "H2 — Pick #3",
+        "H2 — Picks #4–7 (quick notes)",
+        "H2 — Picks #8–10 (hidden gems)",
+        "How to choose the best option",
+        "FAQ",
+        "Conclusion & CTA"
       ];
-    } else if (type === "tutorial") {
-      title = `How to ${topic} – Step-by-Step Guide for Beginners`;
+    } else if(type==="tutorial"){
+      title = `How to ${topic} — Step-by-step Guide`;
       outline = [
-        "Intro – who this guide is for",
-        "What you need before you start",
-        "Step 1 – setup / preparation",
-        "Step 2 – main action / process",
-        "Step 3 – common mistakes to avoid",
-        "Advanced tips & hacks",
-        "Real examples or case study",
-        "Tools / apps we recommend",
-        "FAQ section",
-        "Conclusion + CTA (try it + share results)"
+        "Intro — who this guide is for",
+        "What you need first",
+        "Step 1 — preparation",
+        "Step 2 — main process",
+        "Step 3 — common mistakes",
+        "Advanced tips",
+        "Examples / case study",
+        "Tools & resources",
+        "FAQ",
+        "Conclusion & CTA"
       ];
-    } else if (type === "news") {
-      title = `${topic} – What’s Happening Right Now (Explained)`;
+    } else if(type==="news"){
+      title = `${topic} — The Latest Updates & What They Mean`;
       outline = [
-        "Intro – quick summary of the news",
-        "Background – what led to this",
-        "Timeline of key events",
-        "How fans / audience are reacting",
-        "Expert opinions or quotes (if any)",
-        "What this means for the future",
-        "Our take / analysis",
-        "FAQ or quick Q&A",
-        "Conclusion + CTA (comment your opinion)"
+        "Intro — key summary",
+        "Background",
+        "Timeline of events",
+        "Community reaction",
+        "Expert takes",
+        "Impact going forward",
+        "Our analysis",
+        "FAQ",
+        "Conclusion & CTA"
       ];
-    } else {
-      // review
-      title = `${topic} – Honest Review (No Spoilers)`;
+    } else { // review
+      title = `${topic} — Honest Review (No Major Spoilers)`;
       outline = [
-        "Intro – why everyone is talking about this",
-        "Quick summary (no major spoilers)",
-        "What we loved",
-        "What could be better",
-        "Best moments / highlights (light spoilers)",
-        "Who will enjoy this the most",
-        "Comparison with similar movies / content",
-        "Where to watch / how to access",
-        "Final rating & verdict",
-        "Conclusion + CTA (watch it? yes/no)"
+        "Intro — why it matters",
+        "Quick summary",
+        "What worked",
+        "What didn't",
+        "Highlights",
+        "Who should watch",
+        "Where to watch",
+        "Final verdict",
+        "FAQ",
+        "CTA"
       ];
     }
 
-    const textBlock =
-      `TITLE IDEA:\n${title}\n\nOUTLINE (H2s / sections):\n` +
-      outline.map((h, i) => `${i + 1}. ${h}`).join("\n");
-
-    latestBlogText = textBlock;
-
-    container.innerHTML =
-      `<div class="idea-box"><b>${title}</b></div>` +
-      `<div class="idea-box">${outline.map((h, i) => `${i + 1}. ${h}`).join("<br>")}</div>`;
+    latestBlogText = `TITLE IDEA:\n${title}\n\nOUTLINE:\n` + outline.map((t,i)=>`${i+1}. ${t}`).join("\n");
+    container.innerHTML = `<div class="idea-box"><strong>${title}</strong></div><div style="margin-top:8px" class="idea-box">${outline.map((h,i)=>`${i+1}. ${h}`).join("<br>")}</div>`;
   }
 
-  function copyBlog() {
-    if (!latestBlogText) {
-      alert("Generate a blog idea first, then copy.");
-      return;
-    }
-    copyToClipboard(latestBlogText, "Blog outline copied to clipboard!");
+  function copyBlog(){
+    if(!latestBlogText){ alert("Generate a blog idea first."); return; }
+    copyToClipboard(latestBlogText,"Blog outline copied to clipboard!");
   }
 
-  // 🔁 COPY HELPER
-  function copyToClipboard(text, successMessage) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text)
-        .then(() => alert(successMessage))
-        .catch(() => fallbackCopy(text, successMessage));
-    } else {
-      fallbackCopy(text, successMessage);
-    }
+  // --- Copy helper
+  function copyToClipboard(text, msg){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(()=>alert(msg)).catch(()=>fallbackCopy(text,msg));
+    } else { fallbackCopy(text,msg); }
   }
-
-  function fallbackCopy(text, successMessage) {
-    const temp = document.createElement("textarea");
-    temp.value = text;
-    document.body.appendChild(temp);
-    temp.select();
-    try {
-      document.execCommand("copy");
-      alert(successMessage);
-    } catch (e) {
-      alert("Could not copy, please select and copy manually.");
-    }
-    document.body.removeChild(temp);
+  function fallbackCopy(text,msg){
+    const t = document.createElement("textarea");
+    t.value = text; document.body.appendChild(t);
+    t.select(); try{ document.execCommand("copy"); alert(msg); } catch(e){ alert("Copy failed — please select manually."); }
+    document.body.removeChild(t);
   }
 </script>
 
