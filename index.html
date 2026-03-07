@@ -3,1085 +3,1160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Dose Movies – Your Everyday Cinema Fix</title>
-<meta name="description" content="Daily Dose Movies – in-depth movie reviews, top picks, and curated film guides for every kind of cinephile.">
+<title>Daily Dose Movies – Honest Film Reviews & Cinema Guides</title>
+<meta name="description" content="Daily Dose Movies offers in-depth, original movie reviews, curated top 10 lists, and passionate film guides for every kind of cinema lover.">
+<meta name="keywords" content="movie reviews, film criticism, best movies, cinema, top films, movie recommendations">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Daily Dose Movies – Honest Film Reviews">
+<meta property="og:description" content="In-depth movie reviews, curated watchlists, and honest film criticism.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dailydosemovies.store">
+<link rel="canonical" href="https://dailydosemovies.store">
+<!-- PASTE ADSENSE CODE HERE -->
+<!-- PASTE ANALYTICS CODE HERE -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #F5F0E8;
-    --dark: #0E0C09;
-    --red: #C8272D;
-    --gold: #D4A843;
-    --warm-gray: #8A8070;
-    --light-gray: #E8E2D8;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--dark);
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-  }
-
-  /* ── NAVBAR ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 5vw;
-    background: rgba(14,12,9,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(212,168,67,0.15);
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 900; letter-spacing: -0.02em;
-    color: var(--cream);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--red); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: var(--warm-gray); text-decoration: none;
-    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.05em;
-    text-transform: uppercase; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: grid; place-items: center;
-    position: relative; overflow: hidden;
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(200,39,45,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 70%, rgba(212,168,67,0.08) 0%, transparent 50%),
-      var(--dark);
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.018'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .film-strip {
-    position: absolute; top: 0; bottom: 0;
-    width: 48px; opacity: 0.06;
-    background: repeating-linear-gradient(
-      to bottom,
-      transparent 0px, transparent 12px,
-      #fff 12px, #fff 16px,
-      transparent 16px, transparent 56px,
-      #fff 56px, #fff 68px,
-      transparent 68px, transparent 80px
-    );
-  }
-  .film-strip.left { left: 2vw; }
-  .film-strip.right { right: 2vw; }
-
-  .hero-inner {
-    position: relative; z-index: 2;
-    text-align: center; padding: 0 5vw;
-    animation: fadeUp 1s ease both;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.5rem;
-  }
-  .hero-eyebrow::before, .hero-eyebrow::after {
-    content: ''; display: block;
-    width: 32px; height: 1px; background: var(--gold); opacity: 0.6;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3.2rem, 9vw, 8rem);
-    font-weight: 900; line-height: 0.92;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 em {
-    font-style: italic; color: var(--red);
-    display: block;
-  }
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--warm-gray); max-width: 520px; margin: 0 auto 2.5rem;
-    line-height: 1.7;
-  }
-  .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--red); color: #fff;
-    padding: 0.85rem 2.2rem; border-radius: 4px;
-    font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em;
-    text-decoration: none; text-transform: uppercase;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: #a81f24; transform: translateY(-2px); }
-  .btn-secondary {
-    border: 1px solid rgba(245,240,232,0.25); color: var(--cream);
-    padding: 0.85rem 2.2rem; border-radius: 4px;
-    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em;
-    text-decoration: none; text-transform: uppercase;
-    transition: border-color 0.2s, transform 0.15s;
-  }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-
-  /* ── TICKER ── */
-  .ticker {
-    background: var(--red); padding: 0.65rem 0;
-    overflow: hidden; white-space: nowrap;
-  }
-  .ticker-inner {
-    display: inline-flex; gap: 3rem;
-    animation: ticker 30s linear infinite;
-    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-    font-weight: 600;
-  }
-  .ticker-sep { opacity: 0.5; }
-
-  /* ── SECTION COMMONS ── */
-  section { padding: 6rem 5vw; }
-  .section-label {
-    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 0.6rem; display: block;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900;
-    line-height: 1.1; margin-bottom: 1rem;
-  }
-  .section-subtitle {
-    color: var(--warm-gray); font-size: 1rem; line-height: 1.7;
-    max-width: 560px; margin-bottom: 3rem;
-  }
-
-  /* ── FEATURED REVIEW ── */
-  .featured { background: var(--dark); }
-  .featured-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    align-items: center;
-  }
-  .featured-poster {
-    position: relative; border-radius: 8px; overflow: hidden;
-    aspect-ratio: 2/3; background: #1a1714;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.7);
-  }
-  .featured-poster img { width: 100%; height: 100%; object-fit: cover; }
-  .poster-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 1rem;
-    background: linear-gradient(135deg, #1e1a15 0%, #2a2318 50%, #1e1a15 100%);
-  }
-  .poster-icon { font-size: 4rem; opacity: 0.3; }
-  .poster-title-overlay {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 700;
-    color: rgba(245,240,232,0.4); text-align: center; padding: 0 1rem;
-  }
-  .rating-badge {
-    position: absolute; top: 1rem; right: 1rem;
-    background: var(--gold); color: var(--dark);
-    font-size: 1rem; font-weight: 800; font-family: 'Playfair Display', serif;
-    width: 52px; height: 52px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .featured-content { padding: 1rem 0; }
-  .featured-meta {
-    display: flex; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap;
-  }
-  .tag {
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 2px;
-  }
-  .tag-genre { background: rgba(200,39,45,0.15); color: var(--red); }
-  .tag-year { background: rgba(212,168,67,0.12); color: var(--gold); }
-  .tag-runtime { background: rgba(245,240,232,0.07); color: var(--warm-gray); }
-  .featured-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900;
-    line-height: 1.05; margin-bottom: 0.5rem;
-  }
-  .featured-director {
-    color: var(--warm-gray); font-size: 0.9rem; margin-bottom: 1.5rem;
-  }
-  .featured-director span { color: var(--gold); }
-  .featured-excerpt {
-    color: rgba(245,240,232,0.75); line-height: 1.8;
-    font-size: 1rem; margin-bottom: 2rem;
-  }
-  .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 1.5rem; }
-
-  /* ── REVIEW GRID ── */
-  .reviews { background: #0a0907; }
-  .review-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-  .review-card {
-    background: rgba(245,240,232,0.03);
-    border: 1px solid rgba(245,240,232,0.07);
-    border-radius: 8px; overflow: hidden;
-    transition: transform 0.25s, border-color 0.25s;
-    cursor: pointer;
-  }
-  .review-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(212,168,67,0.3);
-  }
-  .card-poster {
-    aspect-ratio: 16/9; overflow: hidden;
-    background: #181410;
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-  }
-  .card-poster-inner {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 0.5rem;
-  }
-  .card-poster-icon { font-size: 2.5rem; opacity: 0.25; }
-  .card-poster-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem; font-weight: 700;
-    color: rgba(245,240,232,0.3); text-align: center; padding: 0 0.5rem;
-  }
-  .card-rating {
-    position: absolute; bottom: 0.6rem; right: 0.6rem;
-    background: var(--gold); color: var(--dark);
-    font-size: 0.75rem; font-weight: 800;
-    padding: 0.2rem 0.5rem; border-radius: 3px;
-  }
-  .card-body { padding: 1.2rem; }
-  .card-tags { display: flex; gap: 0.5rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; font-weight: 700; line-height: 1.2;
-    margin-bottom: 0.4rem;
-  }
-  .card-director { font-size: 0.8rem; color: var(--warm-gray); margin-bottom: 0.8rem; }
-  .card-excerpt {
-    font-size: 0.88rem; color: rgba(245,240,232,0.6);
-    line-height: 1.6; display: -webkit-box;
-    -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .card-footer {
-    padding: 0.9rem 1.2rem;
-    border-top: 1px solid rgba(245,240,232,0.06);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .read-more {
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--red); text-decoration: none;
-  }
-  .read-more:hover { color: var(--gold); }
-
-  /* ── TOP PICKS ── */
-  .top-picks { background: var(--dark); }
-  .picks-list { display: flex; flex-direction: column; gap: 0; }
-  .pick-item {
-    display: grid; grid-template-columns: 60px 1fr auto;
-    align-items: center; gap: 1.5rem;
-    padding: 1.4rem 0;
-    border-bottom: 1px solid rgba(245,240,232,0.06);
-    transition: background 0.2s;
-  }
-  .pick-item:hover { background: rgba(245,240,232,0.02); }
-  .pick-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; font-weight: 900; color: rgba(245,240,232,0.12);
-    text-align: right;
-  }
-  .pick-info {}
-  .pick-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem; font-weight: 700; margin-bottom: 0.2rem;
-  }
-  .pick-meta { font-size: 0.82rem; color: var(--warm-gray); }
-  .pick-score {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 900; color: var(--gold);
-  }
-
-  /* ── ABOUT ── */
-  .about-section {
-    background: linear-gradient(135deg, #130f0a 0%, #0E0C09 100%);
-    border-top: 1px solid rgba(212,168,67,0.1);
-    border-bottom: 1px solid rgba(212,168,67,0.1);
-  }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .about-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-style: italic; line-height: 1.35;
-    color: var(--cream); margin-bottom: 2rem;
-  }
-  .about-quote::before {
-    content: '\201C';
-    font-size: 5rem; color: var(--red); opacity: 0.4;
-    line-height: 0; vertical-align: -0.3em;
-    margin-right: 0.1em;
-  }
-  .about-text p {
-    color: rgba(245,240,232,0.7); line-height: 1.8; margin-bottom: 1.2rem;
-    font-size: 0.97rem;
-  }
-  .about-stats {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem; margin-top: 2.5rem;
-  }
-  .stat {
-    text-align: center; padding: 1.2rem;
-    border: 1px solid rgba(212,168,67,0.15); border-radius: 6px;
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; font-weight: 900; color: var(--gold); display: block;
-  }
-  .stat-label { font-size: 0.75rem; color: var(--warm-gray); text-transform: uppercase; letter-spacing: 0.1em; }
-
-  /* ── CATEGORIES ── */
-  .categories { background: #0a0907; }
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1rem;
-  }
-  .cat-item {
-    padding: 1.8rem 1.2rem;
-    border: 1px solid rgba(245,240,232,0.07); border-radius: 6px;
-    text-align: center; cursor: pointer;
-    transition: all 0.25s;
-    text-decoration: none; display: block;
-  }
-  .cat-item:hover { border-color: var(--red); background: rgba(200,39,45,0.07); }
-  .cat-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
-  .cat-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; font-weight: 700; color: var(--cream);
-    display: block; margin-bottom: 0.3rem;
-  }
-  .cat-count { font-size: 0.75rem; color: var(--warm-gray); }
-
-  /* ── NEWSLETTER ── */
-  .newsletter {
-    background: var(--red);
-    text-align: center; padding: 5rem 5vw;
-  }
-  .newsletter .section-label { color: rgba(255,255,255,0.6); }
-  .newsletter .section-title { color: #fff; margin-bottom: 0.8rem; }
-  .newsletter p { color: rgba(255,255,255,0.75); margin-bottom: 2rem; font-size: 1rem; }
-  .nl-form { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; max-width: 480px; margin: 0 auto; }
-  .nl-input {
-    flex: 1; min-width: 220px;
-    padding: 0.85rem 1.2rem; border-radius: 4px;
-    border: none; outline: none;
-    background: rgba(0,0,0,0.25); color: #fff;
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-  }
-  .nl-input::placeholder { color: rgba(255,255,255,0.45); }
-  .nl-btn {
-    padding: 0.85rem 1.8rem; border-radius: 4px;
-    background: var(--dark); color: var(--cream);
-    border: none; font-family: 'DM Sans', sans-serif;
-    font-size: 0.88rem; font-weight: 700; letter-spacing: 0.06em;
-    text-transform: uppercase; cursor: pointer;
-    transition: background 0.2s;
-  }
-  .nl-btn:hover { background: #1e1a14; }
-
-  /* ── PRIVACY / CONTACT / ABOUT PAGES ── */
-  .page { display: none; min-height: 100vh; padding: 8rem 5vw 5rem; }
-  .page.active { display: block; }
-  .page h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900;
-    margin-bottom: 0.5rem;
-  }
-  .page h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 700;
-    margin: 2rem 0 0.6rem; color: var(--gold);
-  }
-  .page p, .page li {
-    color: rgba(245,240,232,0.75); line-height: 1.8; margin-bottom: 1rem; font-size: 0.97rem;
-  }
-  .page ul { padding-left: 1.4rem; }
-  .page .divider {
-    width: 60px; height: 3px; background: var(--red);
-    margin: 1rem 0 2rem;
-  }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
-  .contact-info p { color: rgba(245,240,232,0.7); line-height: 1.8; }
-  .contact-info a { color: var(--gold); text-decoration: none; }
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); }
-  .form-group input, .form-group textarea {
-    background: rgba(245,240,232,0.05); border: 1px solid rgba(245,240,232,0.12);
-    border-radius: 4px; padding: 0.8rem 1rem; color: var(--cream);
-    font-family: 'DM Sans', sans-serif; font-size: 0.93rem; outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
-  .form-group textarea { resize: vertical; min-height: 120px; }
-  .form-submit {
-    background: var(--red); color: #fff; border: none;
-    padding: 0.9rem 2rem; border-radius: 4px;
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-    font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
-    cursor: pointer; transition: background 0.2s; align-self: flex-start;
-  }
-  .form-submit:hover { background: #a81f24; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #070604;
-    padding: 4rem 5vw 2rem;
-    border-top: 1px solid rgba(245,240,232,0.06);
-  }
-  .footer-grid {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem; margin-bottom: 3rem;
-  }
-  .footer-brand .nav-logo { font-size: 1.6rem; display: block; margin-bottom: 1rem; }
-  .footer-brand p { color: var(--warm-gray); font-size: 0.88rem; line-height: 1.7; max-width: 280px; }
-  .footer-col h4 {
-    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.2rem;
-  }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-col a { color: var(--warm-gray); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-  .footer-col a:hover { color: var(--cream); }
-  .footer-bottom {
-    border-top: 1px solid rgba(245,240,232,0.06);
-    padding-top: 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .footer-bottom p { font-size: 0.8rem; color: rgba(138,128,112,0.6); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .featured-grid { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .about-stats { grid-template-columns: repeat(3, 1fr); }
-    .pick-item { grid-template-columns: 40px 1fr auto; gap: 1rem; }
-  }
-
-  /* ── AD SLOT PLACEHOLDER ── */
-  .ad-slot {
-    background: rgba(245,240,232,0.03);
-    border: 1px dashed rgba(245,240,232,0.1);
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(245,240,232,0.2); font-size: 0.75rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 1rem; margin: 2rem 0; min-height: 90px;
-  }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:#0B0A08;color:#F2EDE4;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+:root{
+  --red:#C8272D;--red-dk:#9E1E23;--gold:#D4A843;
+  --cream:#F2EDE4;--dark:#0B0A08;--dark2:#111009;--dark3:#161410;
+  --gray:#7A7060;--border:rgba(242,237,228,0.08);--borderg:rgba(212,168,67,0.2)
+}
+/* NAV */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:1rem 5vw;background:rgba(11,10,8,0.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:padding .3s}
+.logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;letter-spacing:-.02em;color:var(--cream);cursor:pointer}
+.logo span{color:var(--red)}
+.nav-menu{display:flex;list-style:none}
+.nav-menu li a{display:block;padding:.5rem 1rem;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);transition:color .2s;cursor:pointer}
+.nav-menu li a:hover{color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--cream);border-radius:2px;transition:all .3s}
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:6rem 5vw 5rem;background:radial-gradient(ellipse 90% 55% at 50% 20%,rgba(200,39,45,.14) 0%,transparent 65%),radial-gradient(ellipse 50% 35% at 85% 75%,rgba(212,168,67,.08) 0%,transparent 55%),#0B0A08}
+.perf{position:absolute;top:0;bottom:0;width:44px;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;opacity:.05;pointer-events:none}
+.perf.left{left:1.5vw}.perf.right{right:1.5vw}
+.perf-hole{width:14px;height:18px;border-radius:3px;border:2px solid #fff}
+.hero-content{position:relative;z-index:2;max-width:860px;animation:fadeUp .9s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.8rem;font-size:.73rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero-badge::before,.hero-badge::after{content:'';display:block;width:36px;height:1px;background:var(--gold);opacity:.5}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,9.5vw,8.5rem);font-weight:900;line-height:.9;letter-spacing:-.03em;margin-bottom:1.6rem}
+.hero h1 .italic{font-style:italic;color:var(--red);display:block}
+.hero-desc{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--gray);max-width:500px;margin:0 auto 2.8rem;line-height:1.75}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-red{background:var(--red);color:#fff;padding:.9rem 2.4rem;border-radius:3px;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .15s;cursor:pointer;border:none;font-family:'Lato',sans-serif}
+.btn-red:hover{background:var(--red-dk);transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(242,237,228,.2);color:var(--cream);padding:.9rem 2.4rem;border-radius:3px;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;cursor:pointer;background:none;font-family:'Lato',sans-serif}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);animation:bounce 2s ease-in-out infinite}
+.hero-scroll::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,var(--gray),transparent)}
+/* TICKER */
+.ticker-wrap{background:var(--red);overflow:hidden;padding:.6rem 0;white-space:nowrap}
+.ticker-track{display:inline-flex;gap:2.5rem;animation:ticker 35s linear infinite;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.ticker-dot{opacity:.45}
+/* SECTIONS */
+.section{padding:6rem 5vw}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-inner-sm{max-width:820px;margin:0 auto}
+.eyebrow{display:block;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.section-h{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;line-height:1.08;margin-bottom:.9rem}
+.section-sub{color:var(--gray);font-size:.97rem;line-height:1.75;max-width:540px;margin-bottom:3rem}
+.red-line{width:48px;height:3px;background:var(--red);margin:.8rem 0 2rem}
+/* ADS */
+.ad-wrap{padding:1.5rem 5vw;background:var(--dark2)}
+.ad-slot{max-width:970px;margin:0 auto;min-height:90px;border-radius:4px;border:1px dashed rgba(242,237,228,.08);background:rgba(242,237,228,.02);display:flex;align-items:center;justify-content:center;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,237,228,.15)}
+/* FEATURED */
+.featured-section{background:var(--dark)}
+.featured-grid{display:grid;grid-template-columns:320px 1fr;gap:4.5rem;align-items:center}
+.poster-wrap{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:2/3;background:linear-gradient(145deg,#1e1a14,#2a2318);box-shadow:0 50px 100px rgba(0,0,0,.7),0 0 0 1px var(--border)}
+.poster-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.poster-icon{font-size:4.5rem;opacity:.22}
+.poster-film-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:rgba(242,237,228,.3);text-align:center;padding:0 1.5rem}
+.score-badge{position:absolute;top:1.2rem;right:1.2rem;width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--dark);font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(212,168,67,.4)}
+.feat-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.28rem .7rem;border-radius:2px}
+.t-genre{background:rgba(200,39,45,.16);color:#e05055}
+.t-year{background:rgba(212,168,67,.13);color:var(--gold)}
+.t-time{background:rgba(242,237,228,.06);color:var(--gray)}
+.feat-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,3rem);font-weight:900;line-height:1;margin-bottom:.4rem}
+.feat-dir{font-size:.88rem;color:var(--gray);margin-bottom:1.4rem}
+.feat-dir span{color:var(--gold)}
+.stars{color:var(--gold);font-size:1.1rem;margin-bottom:1.4rem;letter-spacing:2px}
+.feat-body{color:rgba(242,237,228,.72);line-height:1.85;font-size:.98rem;margin-bottom:1.2rem}
+/* CARDS */
+.reviews-section{background:var(--dark2)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:rgba(242,237,228,.025);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:transform .25s,border-color .25s;cursor:pointer}
+.card:hover{transform:translateY(-7px);border-color:var(--borderg)}
+.card-img{aspect-ratio:16/9;position:relative;background:#151210;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem}
+.card-img-icon{font-size:2.6rem;opacity:.22}
+.card-img-label{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:rgba(242,237,228,.25);text-align:center;padding:0 .5rem}
+.card-score{position:absolute;bottom:.7rem;right:.7rem;background:var(--gold);color:var(--dark);font-size:.72rem;font-weight:900;padding:.22rem .55rem;border-radius:3px}
+.card-body{padding:1.3rem}
+.card-tags{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.75rem}
+.card-title{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:700;line-height:1.2;margin-bottom:.3rem}
+.card-dir{font-size:.78rem;color:var(--gray);margin-bottom:.85rem}
+.card-text{font-size:.87rem;color:rgba(242,237,228,.58);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-foot{padding:.85rem 1.3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.card-stars{color:var(--gold);font-size:.8rem;letter-spacing:1px}
+.read-link{font-size:.75rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--red);transition:color .2s}
+.read-link:hover{color:var(--gold)}
+/* TOP 10 */
+.top10-section{background:var(--dark)}
+.top10-list{list-style:none}
+.top10-item{display:grid;grid-template-columns:56px 1fr 60px;align-items:center;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border);transition:background .2s}
+.top10-item:hover{background:rgba(242,237,228,.02)}
+.top10-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:rgba(242,237,228,.1);text-align:right;line-height:1}
+.top10-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.2rem}
+.top10-meta{font-size:.8rem;color:var(--gray)}
+.top10-score{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold);text-align:right}
+/* GUIDE */
+.guide-section{background:var(--dark3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.guide-grid{display:grid;grid-template-columns:1fr 360px;gap:5rem;align-items:start}
+.guide-body p{color:rgba(242,237,228,.72);line-height:1.85;margin-bottom:1.2rem;font-size:.97rem}
+.guide-body h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin:1.8rem 0 .6rem;color:var(--cream)}
+.guide-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.2rem}
+.guide-list li{display:flex;gap:.8rem;align-items:flex-start;color:rgba(242,237,228,.7);font-size:.93rem;line-height:1.6}
+.guide-list li::before{content:'▸';color:var(--red);flex-shrink:0;margin-top:.05rem}
+.guide-aside{background:rgba(242,237,228,.03);border:1px solid var(--border);border-radius:8px;padding:2rem;position:sticky;top:6rem}
+.aside-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
+.aside-item{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid rgba(242,237,228,.04);font-size:.88rem}
+.aside-item:last-child{border-bottom:none}
+.aside-movie{color:rgba(242,237,228,.8)}
+.aside-score{color:var(--gold);font-weight:700;font-size:.85rem}
+/* ABOUT */
+.about-section{background:var(--dark)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-quote{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2.2rem);font-style:italic;line-height:1.4;color:var(--cream);margin-bottom:2rem}
+.about-quote::before{content:'\201C';font-size:5rem;color:var(--red);opacity:.35;line-height:0;vertical-align:-.3em;margin-right:.05em}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.stat-box{text-align:center;padding:1.4rem 1rem;border:1px solid var(--borderg);border-radius:6px}
+.stat-n{display:block;font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold)}
+.stat-l{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gray)}
+.about-text p{color:rgba(242,237,228,.7);line-height:1.85;font-size:.97rem;margin-bottom:1.2rem}
+/* GENRES */
+.genres-section{background:var(--dark2)}
+.genre-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:1rem}
+.genre-card{padding:1.8rem 1rem;border-radius:6px;text-align:center;border:1px solid var(--border);cursor:pointer;transition:all .25s}
+.genre-card:hover{border-color:var(--red);background:rgba(200,39,45,.07)}
+.genre-icon{font-size:2rem;display:block;margin-bottom:.6rem}
+.genre-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;display:block;margin-bottom:.2rem}
+.genre-count{font-size:.72rem;color:var(--gray)}
+/* NEWSLETTER */
+.nl-section{background:var(--red);text-align:center;padding:5rem 5vw}
+.nl-section .eyebrow{color:rgba(255,255,255,.55)}
+.nl-section .section-h{color:#fff;margin-bottom:.8rem}
+.nl-section p{color:rgba(255,255,255,.75);margin-bottom:2rem;font-size:.97rem}
+.nl-form{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;max-width:460px;margin:0 auto}
+.nl-input{flex:1;min-width:210px;padding:.88rem 1.2rem;border-radius:3px;border:none;outline:none;background:rgba(0,0,0,.22);color:#fff;font-family:'Lato',sans-serif;font-size:.9rem}
+.nl-input::placeholder{color:rgba(255,255,255,.4)}
+.nl-btn{background:#0B0A08;color:var(--cream);border:none;padding:.88rem 1.8rem;border-radius:3px;cursor:pointer;font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:background .2s}
+.nl-btn:hover{background:#1c1811}
+/* INNER PAGES */
+.inner-page{padding:7rem 5vw 5rem;min-height:100vh}
+.inner-page h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:.4rem}
+.inner-page h2{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--gold);margin:2.2rem 0 .6rem}
+.inner-page h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--cream);margin-bottom:.5rem}
+.inner-page p,.inner-page li{color:rgba(242,237,228,.72);line-height:1.85;margin-bottom:1rem;font-size:.97rem}
+.inner-page ul{padding-left:1.4rem}
+.inner-page a{color:var(--gold)}
+.contact-2col{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;margin-top:2rem}
+.c-form{display:flex;flex-direction:column;gap:1.1rem}
+.c-group{display:flex;flex-direction:column;gap:.35rem}
+.c-group label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.c-group input,.c-group textarea,.c-group select{background:rgba(242,237,228,.05);border:1px solid rgba(242,237,228,.1);border-radius:4px;padding:.82rem 1rem;color:var(--cream);font-family:'Lato',sans-serif;font-size:.93rem;outline:none;transition:border-color .2s}
+.c-group input:focus,.c-group textarea:focus,.c-group select:focus{border-color:var(--gold)}
+.c-group textarea{resize:vertical;min-height:130px}
+.c-group select option{background:#1a1610}
+.c-submit{background:var(--red);color:#fff;border:none;padding:.9rem 2rem;border-radius:3px;cursor:pointer;font-family:'Lato',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;transition:background .2s;align-self:flex-start}
+.c-submit:hover{background:var(--red-dk)}
+.c-info-block{margin-bottom:2rem}
+.c-info-block p{color:rgba(242,237,228,.65);font-size:.92rem;line-height:1.7}
+/* REVIEW PAGE */
+.review-page{padding:7rem 5vw 5rem;min-height:100vh;background:var(--dark)}
+.review-hero{display:grid;grid-template-columns:240px 1fr;gap:3.5rem;align-items:start;max-width:1000px;margin:0 auto 4rem;padding-top:1rem}
+.review-poster{border-radius:8px;overflow:hidden;aspect-ratio:2/3;background:linear-gradient(145deg,#1e1a14,#2a2318);box-shadow:0 30px 60px rgba(0,0,0,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;position:relative}
+.review-poster-icon{font-size:4rem;opacity:.2}
+.review-poster-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:rgba(242,237,228,.25);text-align:center;padding:0 1rem}
+.review-score-badge{position:absolute;top:1rem;right:1rem;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--dark);font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;display:flex;align-items:center;justify-content:center}
+.review-meta{padding-top:.5rem}
+.review-meta .back-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);cursor:pointer;margin-bottom:1.5rem;transition:color .2s}
+.review-meta .back-btn:hover{color:var(--gold)}
+.review-meta .feat-tags{margin-bottom:1rem}
+.review-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:.95;margin-bottom:.4rem}
+.review-director{font-size:.9rem;color:var(--gray);margin-bottom:.5rem}
+.review-director span{color:var(--gold)}
+.review-stars{color:var(--gold);font-size:1.2rem;letter-spacing:3px;margin-bottom:1rem}
+.review-verdict{font-size:1.05rem;color:var(--cream);font-style:italic;font-family:'Playfair Display',serif;line-height:1.6;padding:1rem 1.2rem;border-left:3px solid var(--red);background:rgba(200,39,45,.06);border-radius:0 4px 4px 0;margin-bottom:1.5rem}
+.review-body{max-width:1000px;margin:0 auto}
+.review-body p{color:rgba(242,237,228,.75);line-height:1.9;margin-bottom:1.4rem;font-size:1rem}
+.review-body h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--cream);margin:2rem 0 .8rem}
+.review-body blockquote{border-left:3px solid var(--gold);padding:.8rem 1.2rem;margin:1.5rem 0;background:rgba(212,168,67,.05);font-style:italic;color:rgba(242,237,228,.8);font-family:'Playfair Display',serif;font-size:1.05rem;line-height:1.7}
+.review-score-box{background:rgba(242,237,228,.03);border:1px solid var(--border);border-radius:8px;padding:1.5rem 2rem;display:flex;align-items:center;gap:2rem;margin:2.5rem 0;flex-wrap:wrap}
+.score-big{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--gold);line-height:1}
+.score-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gray);margin-bottom:.3rem}
+.score-verdict{font-size:.95rem;color:var(--cream);font-weight:700}
+.score-stars-lg{color:var(--gold);font-size:1.4rem;letter-spacing:3px;margin-top:.3rem}
+.more-reviews{max-width:1000px;margin:3rem auto 0}
+.more-reviews h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.more-card{background:rgba(242,237,228,.025);border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:pointer;transition:all .25s}
+.more-card:hover{border-color:var(--borderg);transform:translateY(-4px)}
+.more-card-img{aspect-ratio:16/9;background:#151210;display:flex;align-items:center;justify-content:center;font-size:2rem;opacity:.3}
+.more-card-body{padding:.9rem}
+.more-card-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;margin-bottom:.2rem}
+.more-card-score{font-size:.78rem;color:var(--gold);font-weight:700}
+/* FOOTER */
+footer{background:#070605;padding:4rem 5vw 2rem;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:1200px;margin:0 auto 3rem}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--cream);display:block;margin-bottom:1rem;cursor:pointer}
+.footer-logo span{color:var(--red)}
+.footer-brand p{color:var(--gray);font-size:.86rem;line-height:1.7;max-width:260px}
+.footer-col h4{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col a{color:var(--gray);font-size:.86rem;transition:color .2s;cursor:pointer}
+.footer-col a:hover{color:var(--cream)}
+.footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.footer-bottom p{font-size:.78rem;color:rgba(122,112,96,.5)}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+/* RESPONSIVE */
+@media(max-width:960px){
+  .featured-grid{grid-template-columns:1fr}
+  .poster-wrap{max-width:300px;margin:0 auto}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .guide-grid{grid-template-columns:1fr}
+  .guide-aside{position:static}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .contact-2col{grid-template-columns:1fr}
+  .review-hero{grid-template-columns:1fr}
+  .review-poster{max-width:220px;margin:0 auto}
+}
+@media(max-width:640px){
+  .nav-menu{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(11,10,8,.97);padding:1rem 5vw 2rem;border-bottom:1px solid var(--border)}
+  .nav-menu.open{display:flex}
+  .hamburger{display:flex}
+  .hero h1{font-size:3rem}
+  .stats-row{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr}
+  .top10-item{grid-template-columns:40px 1fr 48px;gap:1rem}
+  .perf{display:none}
+}
 </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav>
-  <a class="nav-logo" href="#" onclick="showPage('home')">Daily<span>Dose</span>Movies</a>
-  <ul class="nav-links">
-    <li><a href="#" onclick="showPage('home')">Home</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#top-picks">Top Picks</a></li>
-    <li><a href="#" onclick="showPage('about')">About</a></li>
-    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
-    <li><a href="#" onclick="showPage('privacy')">Privacy</a></li>
+<nav id="navbar">
+  <div class="logo" onclick="goTo('home')">Daily<span>Dose</span>Movies</div>
+  <ul class="nav-menu" id="navMenu">
+    <li><a onclick="goTo('home')">Home</a></li>
+    <li><a onclick="goTo('home');goSection('reviews')">Reviews</a></li>
+    <li><a onclick="goTo('home');goSection('top10')">Top 10</a></li>
+    <li><a onclick="goTo('home');goSection('guide')">Guides</a></li>
+    <li><a onclick="goTo('about')">About</a></li>
+    <li><a onclick="goTo('contact')">Contact</a></li>
+    <li><a onclick="goTo('privacy')">Privacy</a></li>
   </ul>
+  <div class="hamburger" id="burger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
-<!-- ══════════════════ HOME PAGE ══════════════════ -->
+<!-- ═══════════════════ HOME ═══════════════════ -->
 <div id="page-home" class="page active">
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="film-strip left"></div>
-    <div class="film-strip right"></div>
-    <div class="hero-inner">
-      <div class="hero-eyebrow">Your Daily Cinema Companion</div>
-      <h1>Every Film<em>Deserves</em>a Verdict</h1>
-      <p class="hero-sub">Deep-dive reviews, curated watchlists, and honest opinions on the movies that matter — from hidden gems to blockbusters.</p>
-      <div class="btn-group">
-        <a class="btn-primary" href="#reviews">Read Reviews</a>
-        <a class="btn-secondary" href="#top-picks">Top Picks</a>
+    <div class="perf left"><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div></div>
+    <div class="perf right"><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div></div>
+    <div class="hero-content">
+      <div class="hero-badge">Your Daily Cinema Companion</div>
+      <h1>Every Film<span class="italic">Deserves</span>a Verdict</h1>
+      <p class="hero-desc">Passionate, original reviews of the films that matter — from Oscar contenders to hidden streaming gems. No PR fluff. Just honest film criticism.</p>
+      <div class="hero-btns">
+        <button class="btn-red" onclick="goSection('reviews')">Read Reviews</button>
+        <button class="btn-outline" onclick="goSection('top10')">Top 10 of 2024</button>
       </div>
     </div>
+    <div class="hero-scroll">Scroll</div>
   </section>
 
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker-inner">
-      <span>Now Reviewing: Sinners ★★★★½</span>
-      <span class="ticker-sep">◆</span>
-      <span>Top Pick: The Brutalist</span>
-      <span class="ticker-sep">◆</span>
-      <span>Hidden Gem: A Real Pain</span>
-      <span class="ticker-sep">◆</span>
-      <span>Must Watch: Anora</span>
-      <span class="ticker-sep">◆</span>
-      <span>Now Reviewing: Sinners ★★★★½</span>
-      <span class="ticker-sep">◆</span>
-      <span>Top Pick: The Brutalist</span>
-      <span class="ticker-sep">◆</span>
-      <span>Hidden Gem: A Real Pain</span>
-      <span class="ticker-sep">◆</span>
-      <span>Must Watch: Anora</span>
-      <span class="ticker-sep">◆</span>
-    </div>
-  </div>
+  <div class="ticker-wrap"><div class="ticker-track">
+    <span>Now Reviewing: Sinners (2025) ★★★★★</span><span class="ticker-dot">◆</span>
+    <span>Best of 2024: The Brutalist</span><span class="ticker-dot">◆</span>
+    <span>Hidden Gem: Flow (2024)</span><span class="ticker-dot">◆</span>
+    <span>Must Watch: Anora</span><span class="ticker-dot">◆</span>
+    <span>New Guide: Best Horror Films of the Decade</span><span class="ticker-dot">◆</span>
+    <span>Now Reviewing: Sinners (2025) ★★★★★</span><span class="ticker-dot">◆</span>
+    <span>Best of 2024: The Brutalist</span><span class="ticker-dot">◆</span>
+    <span>Hidden Gem: Flow (2024)</span><span class="ticker-dot">◆</span>
+    <span>Must Watch: Anora</span><span class="ticker-dot">◆</span>
+    <span>New Guide: Best Horror Films of the Decade</span><span class="ticker-dot">◆</span>
+  </div></div>
 
-  <!-- FEATURED REVIEW -->
-  <section class="featured" id="featured">
-    <div style="max-width:1200px; margin:0 auto;">
-      <span class="section-label">Featured Review</span>
+  <div class="ad-wrap"><div class="ad-slot" style="max-width:728px;min-height:90px;"><!-- ADSENSE LEADERBOARD -->Advertisement</div></div>
+
+  <section class="section featured-section" id="featured">
+    <div class="section-inner">
+      <span class="eyebrow">Featured Review</span>
       <div class="featured-grid">
-        <div class="featured-poster">
-          <div class="poster-placeholder">
-            <span class="poster-icon">🎬</span>
-            <span class="poster-title-overlay">Sinners (2025)</span>
-          </div>
-          <div class="rating-badge">9.1</div>
+        <div class="poster-wrap">
+          <div class="poster-inner"><span class="poster-icon">🎬</span><span class="poster-film-title">Sinners (2025)</span></div>
+          <div class="score-badge">9.2</div>
         </div>
-        <div class="featured-content">
-          <div class="featured-meta">
-            <span class="tag tag-genre">Horror / Drama</span>
-            <span class="tag tag-year">2025</span>
-            <span class="tag tag-runtime">137 min</span>
-          </div>
-          <h2 class="featured-title">Sinners</h2>
-          <p class="featured-director">Directed by <span>Ryan Coogler</span></p>
+        <div>
+          <div class="feat-tags"><span class="tag t-genre">Horror · Drama</span><span class="tag t-year">2025</span><span class="tag t-time">137 min</span></div>
+          <h2 class="feat-title">Sinners</h2>
+          <p class="feat-dir">Directed by <span>Ryan Coogler</span> · Starring <span>Michael B. Jordan</span></p>
           <div class="stars">★★★★★</div>
-          <p class="featured-excerpt">
-            Ryan Coogler's <em>Sinners</em> is a rare beast — a film that wears its ambitions openly and somehow exceeds every one of them. Set in 1930s Mississippi, the story of twin brothers returning home to open a juke joint is wrapped in the language of blues mythology, vampiric folklore, and searing social history. Michael B. Jordan delivers a double performance of remarkable range, and the film's jaw-dropping centrepiece musical sequence stands as one of the great set pieces in recent cinema. Violent, funny, heartbreaking, and alive with ancestral spirit, this is filmmaking that genuinely matters.
-          </p>
-          <a class="btn-primary" href="#reviews">Read Full Review</a>
+          <p class="feat-body">Ryan Coogler's Sinners is a genuine masterwork — one of the most ambitious and fully realised American films in years. Set in 1932 Mississippi, the film follows twin brothers Smoke and Stack as they return home to open a juke joint, only to encounter something deeply supernatural and deeply historical.</p>
+          <p class="feat-body">Coogler weaves blues mythology, vampire folklore, Black American history, and visceral genre filmmaking into something genuinely singular. The film's extraordinary centrepiece musical sequence is the kind of cinema that reminds you what the medium is truly capable of.</p>
+          <button class="btn-red" onclick="goTo('review-sinners')">Read Full Review →</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- AD SLOT -->
-  <div style="padding:0 5vw; background:#0a0907;">
-    <div class="ad-slot" style="max-width:728px; margin:0 auto;">Advertisement</div>
-  </div>
+  <div class="ad-wrap"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE RESPONSIVE -->Advertisement</div></div>
 
-  <!-- LATEST REVIEWS -->
-  <section class="reviews" id="reviews">
-    <div style="max-width:1200px; margin:0 auto;">
-      <span class="section-label">Latest Reviews</span>
-      <h2 class="section-title">Fresh From the Screening Room</h2>
-      <p class="section-subtitle">Honest, original takes on new releases and overlooked classics.</p>
-      <div class="review-grid">
+  <section class="section reviews-section" id="reviews">
+    <div class="section-inner">
+      <span class="eyebrow">Latest Reviews</span>
+      <h2 class="section-h">Fresh From the Screening Room</h2>
+      <p class="section-sub">Original, honest takes on new releases and films worth your time — written for people who actually care about cinema.</p>
+      <div class="cards-grid">
 
-        <!-- Card 1 -->
-        <div class="review-card">
-          <div class="card-poster">
-            <div class="card-poster-inner">
-              <span class="card-poster-icon">🏛️</span>
-              <span class="card-poster-name">The Brutalist</span>
-            </div>
-            <span class="card-rating">9.3</span>
-          </div>
+        <div class="card" onclick="goTo('review-brutalist')">
+          <div class="card-img"><span class="card-img-icon">🏛️</span><span class="card-img-label">The Brutalist</span><span class="card-score">9.3</span></div>
           <div class="card-body">
-            <div class="card-tags">
-              <span class="tag tag-genre">Drama</span>
-              <span class="tag tag-year">2024</span>
-            </div>
+            <div class="card-tags"><span class="tag t-genre">Drama</span><span class="tag t-year">2024 · 214 min</span></div>
             <h3 class="card-title">The Brutalist</h3>
-            <p class="card-director">Brady Corbet</p>
-            <p class="card-excerpt">A monumental 3.5-hour epic about a Hungarian-Jewish architect rebuilding his life in post-war America. Adrien Brody gives the performance of his career in a film that wrestles with creativity, trauma, and the American Dream without offering easy answers.</p>
+            <p class="card-dir">Brady Corbet · Adrien Brody, Felicity Jones</p>
+            <p class="card-text">A monumental 3.5-hour epic charting a Hungarian-Jewish architect's turbulent life in post-war America. Adrien Brody gives the defining performance of his career — wounded, brilliant, and impossible to look away from.</p>
           </div>
-          <div class="card-footer">
-            <div class="stars" style="font-size:0.85rem;">★★★★★</div>
-            <a class="read-more" href="#">Read More →</a>
-          </div>
+          <div class="card-foot"><span class="card-stars">★★★★★</span><span class="read-link">Full Review →</span></div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="review-card">
-          <div class="card-poster">
-            <div class="card-poster-inner">
-              <span class="card-poster-icon">🌸</span>
-              <span class="card-poster-name">Anora</span>
-            </div>
-            <span class="card-rating">8.7</span>
-          </div>
+        <div class="card" onclick="goTo('review-anora')">
+          <div class="card-img"><span class="card-img-icon">🌸</span><span class="card-img-label">Anora</span><span class="card-score">8.7</span></div>
           <div class="card-body">
-            <div class="card-tags">
-              <span class="tag tag-genre">Romance / Comedy</span>
-              <span class="tag tag-year">2024</span>
-            </div>
+            <div class="card-tags"><span class="tag t-genre">Romance · Comedy</span><span class="tag t-year">2024 · 139 min</span></div>
             <h3 class="card-title">Anora</h3>
-            <p class="card-director">Sean Baker</p>
-            <p class="card-excerpt">Sean Baker's Palme d'Or winner is a whirlwind romantic comedy that turns into something far more complex and emotionally devastating. Yura Borisov is a scene-stealer, but it's Mikey Madison's fearless central turn that makes this film burn.</p>
+            <p class="card-dir">Sean Baker · Mikey Madison, Yura Borisov</p>
+            <p class="card-text">Sean Baker's Palme d'Or winner is a whirlwind romance that morphs into something far more devastating and truthful. Mikey Madison is fearless and Yura Borisov steals every scene he inhabits.</p>
           </div>
-          <div class="card-footer">
-            <div class="stars" style="font-size:0.85rem;">★★★★½</div>
-            <a class="read-more" href="#">Read More →</a>
-          </div>
+          <div class="card-foot"><span class="card-stars">★★★★½</span><span class="read-link">Full Review →</span></div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="review-card">
-          <div class="card-poster">
-            <div class="card-poster-inner">
-              <span class="card-poster-icon">💔</span>
-              <span class="card-poster-name">A Real Pain</span>
-            </div>
-            <span class="card-rating">8.4</span>
-          </div>
+        <div class="card" onclick="goTo('review-flow')">
+          <div class="card-img"><span class="card-img-icon">🌊</span><span class="card-img-label">Flow</span><span class="card-score">8.9</span></div>
           <div class="card-body">
-            <div class="card-tags">
-              <span class="tag tag-genre">Drama / Comedy</span>
-              <span class="tag tag-year">2024</span>
-            </div>
-            <h3 class="card-title">A Real Pain</h3>
-            <p class="card-director">Jesse Eisenberg</p>
-            <p class="card-excerpt">Two cousins travel to Poland to honor their late grandmother's memory in this quietly devastating 90-minute gem. Kieran Culkin is electrifying as the free-spirited Benji, and the film handles grief and Jewish identity with remarkable lightness and depth simultaneously.</p>
-          </div>
-          <div class="card-footer">
-            <div class="stars" style="font-size:0.85rem;">★★★★</div>
-            <a class="read-more" href="#">Read More →</a>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="review-card">
-          <div class="card-poster">
-            <div class="card-poster-inner">
-              <span class="card-poster-icon">🤼</span>
-              <span class="card-poster-name">Gladiator II</span>
-            </div>
-            <span class="card-rating">7.2</span>
-          </div>
-          <div class="card-body">
-            <div class="card-tags">
-              <span class="tag tag-genre">Action / Epic</span>
-              <span class="tag tag-year">2024</span>
-            </div>
-            <h3 class="card-title">Gladiator II</h3>
-            <p class="card-director">Ridley Scott</p>
-            <p class="card-excerpt">Ridley Scott's sequel is a supremely entertaining if slightly hollow blockbuster. Paul Mescal holds the screen with charisma, but it's Denzel Washington who truly owns every scene he's in with a gloriously theatrical villainy that borders on self-parody — in the best possible way.</p>
-          </div>
-          <div class="card-footer">
-            <div class="stars" style="font-size:0.85rem;">★★★½</div>
-            <a class="read-more" href="#">Read More →</a>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="review-card">
-          <div class="card-poster">
-            <div class="card-poster-inner">
-              <span class="card-poster-icon">🌊</span>
-              <span class="card-poster-name">Flow</span>
-            </div>
-            <span class="card-rating">8.9</span>
-          </div>
-          <div class="card-body">
-            <div class="card-tags">
-              <span class="tag tag-genre">Animation</span>
-              <span class="tag tag-year">2024</span>
-            </div>
+            <div class="card-tags"><span class="tag t-genre">Animation</span><span class="tag t-year">2024 · 84 min</span></div>
             <h3 class="card-title">Flow</h3>
-            <p class="card-director">Gints Zilbalodis</p>
-            <p class="card-excerpt">The Latvian animated masterpiece about a lone cat surviving a great flood alongside unlikely animal companions is one of the year's most purely cinematic experiences. Entirely wordless, emotionally overwhelming, and visually breathtaking — one of the best animated films in years.</p>
+            <p class="card-dir">Gints Zilbalodis · Latvia</p>
+            <p class="card-text">The Latvian animated masterpiece about a solitary cat surviving a great flood alongside unlikely animal companions is one of the purest cinema experiences of recent years. Entirely wordless and emotionally overwhelming.</p>
           </div>
-          <div class="card-footer">
-            <div class="stars" style="font-size:0.85rem;">★★★★★</div>
-            <a class="read-more" href="#">Read More →</a>
-          </div>
+          <div class="card-foot"><span class="card-stars">★★★★★</span><span class="read-link">Full Review →</span></div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="review-card">
-          <div class="card-poster">
-            <div class="card-poster-inner">
-              <span class="card-poster-icon">🎭</span>
-              <span class="card-poster-name">Conclave</span>
-            </div>
-            <span class="card-rating">8.1</span>
-          </div>
+        <div class="card" onclick="goTo('review-realpain')">
+          <div class="card-img"><span class="card-img-icon">💔</span><span class="card-img-label">A Real Pain</span><span class="card-score">8.4</span></div>
           <div class="card-body">
-            <div class="card-tags">
-              <span class="tag tag-genre">Thriller / Drama</span>
-              <span class="tag tag-year">2024</span>
-            </div>
+            <div class="card-tags"><span class="tag t-genre">Drama · Comedy</span><span class="tag t-year">2024 · 90 min</span></div>
+            <h3 class="card-title">A Real Pain</h3>
+            <p class="card-dir">Jesse Eisenberg · Kieran Culkin</p>
+            <p class="card-text">Two cousins travel to Poland to honour their late grandmother's memory in this quietly devastating 90-minute gem. Kieran Culkin is electrifying as the free-spirited Benji.</p>
+          </div>
+          <div class="card-foot"><span class="card-stars">★★★★</span><span class="read-link">Full Review →</span></div>
+        </div>
+
+        <div class="card" onclick="goTo('review-conclave')">
+          <div class="card-img"><span class="card-img-icon">🎭</span><span class="card-img-label">Conclave</span><span class="card-score">8.1</span></div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag t-genre">Thriller · Drama</span><span class="tag t-year">2024 · 120 min</span></div>
             <h3 class="card-title">Conclave</h3>
-            <p class="card-director">Edward Berger</p>
-            <p class="card-excerpt">Edward Berger follows All Quiet on the Western Front with this taut, morally complex thriller set inside the Vatican during a papal election. Ralph Fiennes is exceptional and the film builds to a truly audacious final revelation that demands to be discussed at length.</p>
+            <p class="card-dir">Edward Berger · Ralph Fiennes</p>
+            <p class="card-text">Edward Berger follows All Quiet with this taut, morally complex Vatican thriller. Ralph Fiennes navigates faith and doubt with exceptional precision, and the film builds to one of the most audacious final twists of recent years.</p>
           </div>
-          <div class="card-footer">
-            <div class="stars" style="font-size:0.85rem;">★★★★</div>
-            <a class="read-more" href="#">Read More →</a>
+          <div class="card-foot"><span class="card-stars">★★★★</span><span class="read-link">Full Review →</span></div>
+        </div>
+
+        <div class="card" onclick="goTo('review-substance')">
+          <div class="card-img"><span class="card-img-icon">🔬</span><span class="card-img-label">The Substance</span><span class="card-score">8.2</span></div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag t-genre">Body Horror</span><span class="tag t-year">2024 · 141 min</span></div>
+            <h3 class="card-title">The Substance</h3>
+            <p class="card-dir">Coralie Fargeat · Demi Moore, Margaret Qualley</p>
+            <p class="card-text">Coralie Fargeat's savage body horror satire about celebrity and ageing is both deeply uncomfortable and bitingly funny. Demi Moore gives the bravest performance of her career.</p>
           </div>
+          <div class="card-foot"><span class="card-stars">★★★★</span><span class="read-link">Full Review →</span></div>
+        </div>
+
+        <div class="card" onclick="goTo('review-gladiator2')">
+          <div class="card-img"><span class="card-img-icon">🤼</span><span class="card-img-label">Gladiator II</span><span class="card-score">7.2</span></div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag t-genre">Action · Epic</span><span class="tag t-year">2024 · 148 min</span></div>
+            <h3 class="card-title">Gladiator II</h3>
+            <p class="card-dir">Ridley Scott · Paul Mescal, Denzel Washington</p>
+            <p class="card-text">Ridley Scott's long-awaited sequel is supremely entertaining blockbuster filmmaking. Denzel Washington's gloriously theatrical villainy makes this worth watching above everything else.</p>
+          </div>
+          <div class="card-foot"><span class="card-stars">★★★½</span><span class="read-link">Full Review →</span></div>
+        </div>
+
+        <div class="card" onclick="goTo('review-nickelboys')">
+          <div class="card-img"><span class="card-img-icon">🌙</span><span class="card-img-label">Nickel Boys</span><span class="card-score">8.6</span></div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag t-genre">Drama</span><span class="tag t-year">2024 · 140 min</span></div>
+            <h3 class="card-title">Nickel Boys</h3>
+            <p class="card-dir">RaMell Ross · Ethan Herisse, Brandon Wilson</p>
+            <p class="card-text">RaMell Ross adapts Colson Whitehead's Pulitzer Prize-winning novel with a radical first-person visual approach that makes watching it feel genuinely new and deeply affecting.</p>
+          </div>
+          <div class="card-foot"><span class="card-stars">★★★★½</span><span class="read-link">Full Review →</span></div>
+        </div>
+
+        <div class="card" onclick="goTo('review-dune2')">
+          <div class="card-img"><span class="card-img-icon">🌌</span><span class="card-img-label">Dune: Part Two</span><span class="card-score">7.9</span></div>
+          <div class="card-body">
+            <div class="card-tags"><span class="tag t-genre">Sci-Fi · Epic</span><span class="tag t-year">2024 · 166 min</span></div>
+            <h3 class="card-title">Dune: Part Two</h3>
+            <p class="card-dir">Denis Villeneuve · Timothée Chalamet, Zendaya</p>
+            <p class="card-text">Denis Villeneuve completes his adaptation with bravura filmmaking and visual poetry that few directors working today can match. One of the great sci-fi epics of the modern era.</p>
+          </div>
+          <div class="card-foot"><span class="card-stars">★★★★</span><span class="read-link">Full Review →</span></div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- AD SLOT -->
-  <div style="padding:0 5vw; background:#0a0907;">
-    <div class="ad-slot" style="max-width:970px; margin:0 auto;">Advertisement</div>
-  </div>
+  <div class="ad-wrap"><div class="ad-slot" style="max-width:336px;min-height:280px;margin:0 auto;"><!-- ADSENSE RECTANGLE -->Advertisement</div></div>
 
-  <!-- TOP PICKS -->
-  <section class="top-picks" id="top-picks">
-    <div style="max-width:800px; margin:0 auto;">
-      <span class="section-label">Curated List</span>
-      <h2 class="section-title">The 10 Best Films of 2024</h2>
-      <p class="section-subtitle">After hundreds of hours in the dark, these are the ten films that truly stayed with us.</p>
-      <div class="picks-list">
-        <div class="pick-item">
-          <span class="pick-num">01</span>
-          <div class="pick-info">
-            <div class="pick-title">The Brutalist</div>
-            <div class="pick-meta">Brady Corbet · Drama · 214 min</div>
-          </div>
-          <span class="pick-score">9.3</span>
+  <section class="section top10-section" id="top10">
+    <div class="section-inner-sm">
+      <span class="eyebrow">Curated Ranking</span>
+      <h2 class="section-h">The 10 Best Films of 2024</h2>
+      <p class="section-sub">After watching everything from January to December, these are the ten films that stayed with us longest and reminded us why cinema matters.</p>
+      <ul class="top10-list">
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-brutalist')"><span class="top10-num">01</span><div><div class="top10-title">The Brutalist</div><div class="top10-meta">Brady Corbet · Drama · 214 min</div></div><span class="top10-score">9.3</span></li>
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-flow')"><span class="top10-num">02</span><div><div class="top10-title">Flow</div><div class="top10-meta">Gints Zilbalodis · Animation · Latvia</div></div><span class="top10-score">8.9</span></li>
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-anora')"><span class="top10-num">03</span><div><div class="top10-title">Anora</div><div class="top10-meta">Sean Baker · Romance · 139 min</div></div><span class="top10-score">8.7</span></li>
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-nickelboys')"><span class="top10-num">04</span><div><div class="top10-title">Nickel Boys</div><div class="top10-meta">RaMell Ross · Drama · 140 min</div></div><span class="top10-score">8.6</span></li>
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-realpain')"><span class="top10-num">05</span><div><div class="top10-title">A Real Pain</div><div class="top10-meta">Jesse Eisenberg · Drama/Comedy · 90 min</div></div><span class="top10-score">8.4</span></li>
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-substance')"><span class="top10-num">06</span><div><div class="top10-title">The Substance</div><div class="top10-meta">Coralie Fargeat · Body Horror · 141 min</div></div><span class="top10-score">8.2</span></li>
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-conclave')"><span class="top10-num">07</span><div><div class="top10-title">Conclave</div><div class="top10-meta">Edward Berger · Thriller · 120 min</div></div><span class="top10-score">8.1</span></li>
+        <li class="top10-item"><span class="top10-num">08</span><div><div class="top10-title">All We Imagine as Light</div><div class="top10-meta">Payal Kapadia · Drama · India/France</div></div><span class="top10-score">8.0</span></li>
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-dune2')"><span class="top10-num">09</span><div><div class="top10-title">Dune: Part Two</div><div class="top10-meta">Denis Villeneuve · Sci-Fi · 166 min</div></div><span class="top10-score">7.9</span></li>
+        <li class="top10-item" style="cursor:pointer" onclick="goTo('review-gladiator2')"><span class="top10-num">10</span><div><div class="top10-title">Gladiator II</div><div class="top10-meta">Ridley Scott · Action/Epic · 148 min</div></div><span class="top10-score">7.2</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section guide-section" id="guide">
+    <div class="section-inner">
+      <div class="guide-grid">
+        <div class="guide-body">
+          <span class="eyebrow">Film Guide</span>
+          <h2 class="section-h">The Essential Horror Films of the Last Decade</h2>
+          <div class="red-line"></div>
+          <p>Horror is the most misunderstood genre in cinema. Often dismissed as cheap thrills and jump scares, the best horror films are among the most psychologically complex and formally daring works being made today. The past decade has been an extraordinary period for the genre.</p>
+          <h3>Why Horror Matters</h3>
+          <p>The horror genre has always been a vehicle for the anxieties of its time. Today's horror deals in social dread, racial trauma, grief, and the breakdown of trust — with unprecedented artistic ambition. Directors like Ari Aster, Jordan Peele, Robert Eggers, and Coralie Fargeat have elevated the genre to new heights.</p>
+          <h3>The Films You Need to See</h3>
+          <ul class="guide-list">
+            <li><strong>Hereditary (2018)</strong> — Ari Aster's debut remains the decade's most terrifying film. A family trauma drama that unfolds into something genuinely demonic, with Toni Collette delivering a performance of raw, screaming grief that should have won every award going.</li>
+            <li><strong>Get Out (2017)</strong> — Jordan Peele's masterclass in socially conscious horror. A Black man visiting his white girlfriend's family discovers something deeply, horrifyingly wrong. Surgically precise in its satire of liberal racism.</li>
+            <li><strong>The Witch (2015)</strong> — Robert Eggers's debut is a slow, cold, unbearable study in Puritan terror. Set in 1630s New England, it's a film about fear of the unknown, religious paranoia, and the way communities destroy their most vulnerable members.</li>
+            <li><strong>Midsommar (2019)</strong> — Ari Aster's second film is horror in full daylight — a breakup movie set against a Swedish folk festival that descends into ritual nightmare. Florence Pugh is extraordinary throughout.</li>
+            <li><strong>The Substance (2024)</strong> — Coralie Fargeat's body horror satire is the most viscerally shocking film of recent years. Demi Moore gives everything she has in a film that demands everything from its audience in return.</li>
+          </ul>
+          <h3>What Makes Great Horror?</h3>
+          <p>The best horror films build dread through character investment first, spectacle second. We fear for people on screen before we fear the monster. The greatest horror directors understand this: their monsters are externalisations of internal terror — grief, guilt, prejudice, vanity. The genre is in extraordinary health right now.</p>
         </div>
-        <div class="pick-item">
-          <span class="pick-num">02</span>
-          <div class="pick-info">
-            <div class="pick-title">Flow</div>
-            <div class="pick-meta">Gints Zilbalodis · Animation · 84 min</div>
-          </div>
-          <span class="pick-score">8.9</span>
-        </div>
-        <div class="pick-item">
-          <span class="pick-num">03</span>
-          <div class="pick-info">
-            <div class="pick-title">Anora</div>
-            <div class="pick-meta">Sean Baker · Romance · 139 min</div>
-          </div>
-          <span class="pick-score">8.7</span>
-        </div>
-        <div class="pick-item">
-          <span class="pick-num">04</span>
-          <div class="pick-info">
-            <div class="pick-title">Nickel Boys</div>
-            <div class="pick-meta">RaMell Ross · Drama · 140 min</div>
-          </div>
-          <span class="pick-score">8.6</span>
-        </div>
-        <div class="pick-item">
-          <span class="pick-num">05</span>
-          <div class="pick-info">
-            <div class="pick-title">A Real Pain</div>
-            <div class="pick-meta">Jesse Eisenberg · Drama · 90 min</div>
-          </div>
-          <span class="pick-score">8.4</span>
-        </div>
-        <div class="pick-item">
-          <span class="pick-num">06</span>
-          <div class="pick-info">
-            <div class="pick-title">The Substance</div>
-            <div class="pick-meta">Coralie Fargeat · Body Horror · 141 min</div>
-          </div>
-          <span class="pick-score">8.2</span>
-        </div>
-        <div class="pick-item">
-          <span class="pick-num">07</span>
-          <div class="pick-info">
-            <div class="pick-title">Conclave</div>
-            <div class="pick-meta">Edward Berger · Thriller · 120 min</div>
-          </div>
-          <span class="pick-score">8.1</span>
-        </div>
-        <div class="pick-item">
-          <span class="pick-num">08</span>
-          <div class="pick-info">
-            <div class="pick-title">All We Imagine as Light</div>
-            <div class="pick-meta">Payal Kapadia · Drama · 118 min</div>
-          </div>
-          <span class="pick-score">8.0</span>
-        </div>
-        <div class="pick-item">
-          <span class="pick-num">09</span>
-          <div class="pick-info">
-            <div class="pick-title">Dune: Part Two</div>
-            <div class="pick-meta">Denis Villeneuve · Sci-Fi · 166 min</div>
-          </div>
-          <span class="pick-score">7.9</span>
-        </div>
-        <div class="pick-item">
-          <span class="pick-num">10</span>
-          <div class="pick-info">
-            <div class="pick-title">Gladiator II</div>
-            <div class="pick-meta">Ridley Scott · Action · 148 min</div>
-          </div>
-          <span class="pick-score">7.2</span>
+        <div class="guide-aside">
+          <div class="aside-title">Horror Films: Our Ratings</div>
+          <div class="aside-item"><span class="aside-movie">Hereditary (2018)</span><span class="aside-score">9.4</span></div>
+          <div class="aside-item"><span class="aside-movie">Get Out (2017)</span><span class="aside-score">9.1</span></div>
+          <div class="aside-item"><span class="aside-movie">Midsommar (2019)</span><span class="aside-score">8.6</span></div>
+          <div class="aside-item"><span class="aside-movie">The Witch (2015)</span><span class="aside-score">8.5</span></div>
+          <div class="aside-item"><span class="aside-movie">The Substance (2024)</span><span class="aside-score">8.2</span></div>
+          <div class="aside-item"><span class="aside-movie">His House (2020)</span><span class="aside-score">8.1</span></div>
+          <div class="aside-item"><span class="aside-movie">Pearl (2022)</span><span class="aside-score">8.0</span></div>
+          <div class="aside-item"><span class="aside-movie">Talk to Me (2023)</span><span class="aside-score">7.8</span></div>
+          <div class="aside-item"><span class="aside-movie">Nope (2022)</span><span class="aside-score">7.6</span></div>
+          <div class="aside-item"><span class="aside-movie">Men (2022)</span><span class="aside-score">7.4</span></div>
+          <div class="ad-slot" style="min-height:250px;margin-top:1.5rem;"><!-- ADSENSE SIDEBAR -->Advertisement</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT TEASER -->
-  <section class="about-section">
-    <div style="max-width:1100px; margin:0 auto;">
+  <section class="section about-section">
+    <div class="section-inner">
       <div class="about-grid">
         <div>
-          <span class="section-label">About Us</span>
-          <p class="about-quote">Cinema is the mirror in which humanity recognises itself.</p>
-          <div class="about-stats">
-            <div class="stat">
-              <span class="stat-num">500+</span>
-              <span class="stat-label">Reviews</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">50+</span>
-              <span class="stat-label">Curated Lists</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">10K+</span>
-              <span class="stat-label">Readers</span>
-            </div>
+          <span class="eyebrow">About This Site</span>
+          <p class="about-quote">Cinema is the mirror in which humanity recognises itself — and we take that mirror seriously.</p>
+          <div class="stats-row">
+            <div class="stat-box"><span class="stat-n">500+</span><span class="stat-l">Reviews</span></div>
+            <div class="stat-box"><span class="stat-n">50+</span><span class="stat-l">Guides</span></div>
+            <div class="stat-box"><span class="stat-n">10K+</span><span class="stat-l">Readers</span></div>
           </div>
         </div>
         <div class="about-text">
-          <p>Daily Dose Movies was born from a simple obsession: the belief that every film, from the lowest-budget indie to the biggest blockbuster, deserves thoughtful, honest criticism.</p>
-          <p>We write long-form reviews that go beyond the surface — examining craft, context, and the way cinema shapes the world we live in. No PR speak. No star-rating inflation. Just genuine, passionate film writing.</p>
-          <a class="btn-secondary" href="#" onclick="showPage('about')">Our Story →</a>
+          <p>Daily Dose Movies was built on a simple belief: every film deserves honest, thoughtful criticism written by people who genuinely love cinema. Not press releases dressed up as reviews. Real writing about real films.</p>
+          <p>We cover everything — new releases, streaming originals, international cinema, classic retrospectives, and the hidden gems most people miss. No genre bias. No studio allegiance.</p>
+          <button class="btn-outline" onclick="goTo('about')">Our Full Story →</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CATEGORIES -->
-  <section class="categories">
-    <div style="max-width:1200px; margin:0 auto;">
-      <span class="section-label">Browse by Genre</span>
-      <h2 class="section-title">Find Your Next Favourite</h2>
-      <div class="cat-grid">
-        <a class="cat-item" href="#reviews"><span class="cat-icon">🎭</span><span class="cat-name">Drama</span><span class="cat-count">142 films</span></a>
-        <a class="cat-item" href="#reviews"><span class="cat-icon">😱</span><span class="cat-name">Horror</span><span class="cat-count">87 films</span></a>
-        <a class="cat-item" href="#reviews"><span class="cat-icon">😂</span><span class="cat-name">Comedy</span><span class="cat-count">96 films</span></a>
-        <a class="cat-item" href="#reviews"><span class="cat-icon">🚀</span><span class="cat-name">Sci-Fi</span><span class="cat-count">74 films</span></a>
-        <a class="cat-item" href="#reviews"><span class="cat-icon">⚔️</span><span class="cat-name">Action</span><span class="cat-count">110 films</span></a>
-        <a class="cat-item" href="#reviews"><span class="cat-icon">💕</span><span class="cat-name">Romance</span><span class="cat-count">63 films</span></a>
-        <a class="cat-item" href="#reviews"><span class="cat-icon">🔍</span><span class="cat-name">Thriller</span><span class="cat-count">89 films</span></a>
-        <a class="cat-item" href="#reviews"><span class="cat-icon">🌍</span><span class="cat-name">World Cinema</span><span class="cat-count">118 films</span></a>
+  <section class="section genres-section" id="genres">
+    <div class="section-inner">
+      <span class="eyebrow">Browse by Genre</span>
+      <h2 class="section-h">Find Your Next Film</h2>
+      <p class="section-sub">Whatever you're in the mood for, we have you covered.</p>
+      <div class="genre-grid">
+        <div class="genre-card"><span class="genre-icon">🎭</span><span class="genre-name">Drama</span><span class="genre-count">142 reviews</span></div>
+        <div class="genre-card"><span class="genre-icon">😱</span><span class="genre-name">Horror</span><span class="genre-count">87 reviews</span></div>
+        <div class="genre-card"><span class="genre-icon">😂</span><span class="genre-name">Comedy</span><span class="genre-count">96 reviews</span></div>
+        <div class="genre-card"><span class="genre-icon">🚀</span><span class="genre-name">Sci-Fi</span><span class="genre-count">74 reviews</span></div>
+        <div class="genre-card"><span class="genre-icon">⚔️</span><span class="genre-name">Action</span><span class="genre-count">110 reviews</span></div>
+        <div class="genre-card"><span class="genre-icon">💕</span><span class="genre-name">Romance</span><span class="genre-count">63 reviews</span></div>
+        <div class="genre-card"><span class="genre-icon">🔍</span><span class="genre-name">Thriller</span><span class="genre-count">89 reviews</span></div>
+        <div class="genre-card"><span class="genre-icon">🌍</span><span class="genre-name">World Cinema</span><span class="genre-count">118 reviews</span></div>
       </div>
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-  <section class="newsletter">
-    <span class="section-label">Stay in the Loop</span>
-    <h2 class="section-title">Your Weekly Film Fix</h2>
-    <p>Get our best reviews, hidden gem picks, and curated watchlists delivered to your inbox every Friday.</p>
+  <section class="nl-section">
+    <span class="eyebrow">Stay Updated</span>
+    <h2 class="section-h">Your Weekly Film Fix</h2>
+    <p>Get our best new reviews, hidden gem picks, and curated watchlists every Friday. No spam. Unsubscribe anytime.</p>
     <div class="nl-form">
       <input class="nl-input" type="email" placeholder="your@email.com">
-      <button class="nl-btn">Subscribe</button>
+      <button class="nl-btn">Subscribe Free</button>
     </div>
   </section>
+</div>
 
-</div><!-- end home page -->
+<!-- ═══════════════════ REVIEW: SINNERS ═══════════════════ -->
+<div id="page-review-sinners" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🎬</span><span class="review-poster-name">Sinners</span><div class="review-score-badge">9.2</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Horror · Drama</span><span class="tag t-year">2025</span><span class="tag t-time">137 min</span></div>
+        <h1 class="review-title">Sinners</h1>
+        <p class="review-director">Directed by <span>Ryan Coogler</span> · Starring <span>Michael B. Jordan, Hailee Steinfeld, Jack O'Connell</span></p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-verdict">"A genuine American masterwork — visceral, spiritual, and unlike anything else in cinemas right now."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>Ryan Coogler's Sinners arrives with the weight of expectation and somehow exceeds every bit of it. Set in 1932 rural Mississippi, the film opens with twin brothers Smoke and Stack — both played with mesmerising duality by Michael B. Jordan — returning to their hometown after years away. Their plan is simple: use the money they've saved to open a juke joint, a place of music and community for Black residents shut out of white establishments. What follows is anything but simple.</p>
+      <h3>A Film About More Than Its Genre</h3>
+      <p>Sinners announces itself as a horror film, and it delivers as a horror film — but Coogler is far more interested in what the horror represents than in the horror itself. The supernatural threat that arrives at the juke joint is rooted in the history of the blues, in the spiritual folklore of the Mississippi Delta, and in the long shadow of exploitation and theft that defines American music history. When the monsters appear, they feel like a logical continuation of the real-world violence that preceded them.</p>
+      <p>This is a film deeply engaged with questions about Black American culture, about who owns art, about the price paid by communities who created the music that the world would go on to call its own. Coogler embeds all of this into a genre framework that could have felt clumsy or didactic; instead, it feels inevitable.</p>
+      <h3>Michael B. Jordan at His Best</h3>
+      <p>Playing twin characters is an obvious showcase opportunity, and Jordan takes full advantage — but not by leaning into the novelty. Instead, he creates two distinct men who share the same face and feel nothing alike. Smoke is controlled, strategic, haunted; Stack is more open, more reckless, more willing to hope. Their dynamic gives the film its emotional core, and Jordan sustains it through scenes of great tenderness and scenes of extraordinary violence with equal conviction.</p>
+      <blockquote>"This is the performance Jordan was always capable of, in the film that demanded it."</blockquote>
+      <h3>The Centrepiece Sequence</h3>
+      <p>Without giving too much away: the film's extended centrepiece, set inside the juke joint as the night builds to its terrible crescendo, is one of the great set pieces in recent cinema. Coogler stages it with the confidence of a filmmaker who knows exactly what he's doing — the way the music builds, the way the supernatural encroaches, the way the camera moves through the space. It lasts for nearly twenty minutes and feels both too long and not long enough.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">9.2</div></div>
+        <div><div class="score-verdict">Essential — see it immediately</div><div class="score-stars-lg">★★★★★</div></div>
+      </div>
+      <p>Sinners is the kind of film that comes along a few times a decade — one that uses genre as a vehicle for something genuinely profound, that trusts its audience completely, and that announces the arrival of a filmmaker at the absolute height of their powers. Ryan Coogler has made his masterpiece. Violent, funny, heartbreaking, and spiritually alive: this is what cinema is for.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+        <div class="more-card" onclick="goTo('review-anora')"><div class="more-card-img">🌸</div><div class="more-card-body"><div class="more-card-title">Anora</div><div class="more-card-score">★★★★½ · 8.7</div></div></div>
+        <div class="more-card" onclick="goTo('review-flow')"><div class="more-card-img">🌊</div><div class="more-card-body"><div class="more-card-title">Flow</div><div class="more-card-score">★★★★★ · 8.9</div></div></div>
+        <div class="more-card" onclick="goTo('review-conclave')"><div class="more-card-img">🎭</div><div class="more-card-body"><div class="more-card-title">Conclave</div><div class="more-card-score">★★★★ · 8.1</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- ══════════════════ ABOUT PAGE ══════════════════ -->
+<!-- ═══════════════════ REVIEW: THE BRUTALIST ═══════════════════ -->
+<div id="page-review-brutalist" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🏛️</span><span class="review-poster-name">The Brutalist</span><div class="review-score-badge">9.3</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Drama</span><span class="tag t-year">2024</span><span class="tag t-time">214 min</span></div>
+        <h1 class="review-title">The Brutalist</h1>
+        <p class="review-director">Directed by <span>Brady Corbet</span> · Starring <span>Adrien Brody, Felicity Jones, Guy Pearce</span></p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-verdict">"A monumental achievement — one of the most ambitious and fully realised American films in a generation."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>Brady Corbet's The Brutalist is not a film that arrives quietly. At three and a half hours, with an intermission, it is a deliberate provocation — a statement that some stories require space, that compression would be a betrayal. By the time it ends, you understand completely why every minute was necessary.</p>
+      <h3>The Story</h3>
+      <p>Hungarian-Jewish architect László Tóth (Adrien Brody) survives the Holocaust and emigrates to the United States, eventually arriving in Pennsylvania where he finds himself employed by the wealthy industrialist Harrison Lee Van Buren (Guy Pearce). What begins as a professional relationship becomes something far more complex — a portrait of patronage, exploitation, and the impossible relationship between artist and patron, immigrant and establishment, creator and financier.</p>
+      <h3>Adrien Brody's Career-Best</h3>
+      <p>Brody won his Oscar for The Pianist and was extraordinary there. But this is something else. The László he builds is a man of profound intelligence and profound damage — someone who carries the weight of history in every movement, who finds his salvation in architecture and his damnation in the same place. There are scenes here that are almost unbearable to watch, not because they are violent (though some are) but because the emotional exposure is so complete.</p>
+      <blockquote>"Brady Corbet has made a film about what it costs to make art, and the price is everything."</blockquote>
+      <h3>The Architecture of the Film</h3>
+      <p>Corbet is not merely interested in architecture as subject matter — he is interested in it as a formal principle. The film is constructed like one of László's buildings: brutalist in its refusal of ornament, overwhelming in its scale, beautiful in ways that reveal themselves slowly. Lol Crawley's cinematography, shot on VistaVision, gives the film a grandeur that feels genuinely old-fashioned, genuinely cinematic.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">9.3</div></div>
+        <div><div class="score-verdict">Essential — a genuine masterpiece</div><div class="score-stars-lg">★★★★★</div></div>
+      </div>
+      <p>The Brutalist is the best film of 2024. It is demanding, occasionally punishing, and absolutely unforgettable. Corbet has made a film about art, immigration, trauma, and the American Dream that earns its epic length and then some. See it on the biggest screen you can find.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-sinners')"><div class="more-card-img">🎬</div><div class="more-card-body"><div class="more-card-title">Sinners</div><div class="more-card-score">★★★★★ · 9.2</div></div></div>
+        <div class="more-card" onclick="goTo('review-anora')"><div class="more-card-img">🌸</div><div class="more-card-body"><div class="more-card-title">Anora</div><div class="more-card-score">★★★★½ · 8.7</div></div></div>
+        <div class="more-card" onclick="goTo('review-nickelboys')"><div class="more-card-img">🌙</div><div class="more-card-body"><div class="more-card-title">Nickel Boys</div><div class="more-card-score">★★★★½ · 8.6</div></div></div>
+        <div class="more-card" onclick="goTo('review-flow')"><div class="more-card-img">🌊</div><div class="more-card-body"><div class="more-card-title">Flow</div><div class="more-card-score">★★★★★ · 8.9</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEW: ANORA ═══════════════════ -->
+<div id="page-review-anora" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🌸</span><span class="review-poster-name">Anora</span><div class="review-score-badge">8.7</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Romance · Comedy</span><span class="tag t-year">2024</span><span class="tag t-time">139 min</span></div>
+        <h1 class="review-title">Anora</h1>
+        <p class="review-director">Directed by <span>Sean Baker</span> · Starring <span>Mikey Madison, Yura Borisov, Yuriy Borisov</span></p>
+        <div class="review-stars">★★★★½</div>
+        <p class="review-verdict">"A Palme d'Or winner that earns every frame of its acclaim — chaotic, tender, and devastating."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>Sean Baker's Anora begins as a screwball romantic comedy and arrives, by its final scene, somewhere altogether more complicated and more true. The journey between those two points is one of the most entertaining and emotionally destabilising experiences you'll have in a cinema this year.</p>
+      <h3>The Setup</h3>
+      <p>Anora — Ani to her friends — is a young sex worker in New York who meets Ivan, the son of a Russian oligarch. They fall into a spontaneous Las Vegas marriage, and what follows is a frantic, funny, eventually heartbreaking collision between Ani's genuine feelings and the cold economic reality of the world she's stepped into. When Ivan's family sends representatives to annul the marriage, the film shifts gears entirely.</p>
+      <h3>Mikey Madison's Breakout</h3>
+      <p>Mikey Madison gives one of the great performances of 2024 in the title role. Ani is fierce, vulnerable, funny, and finally heartbreaking — a character who demands and deserves our complete sympathy even when the film refuses to give her a happy ending. Madison plays her without sentimentality and without condescension, which is the only way this works.</p>
+      <blockquote>"The final scene of Anora is one of the most emotionally devastating endings in recent American cinema."</blockquote>
+      <h3>Yura Borisov Steals the Film</h3>
+      <p>As Igor, one of the family's representatives sent to clean up the marriage, Yura Borisov does something remarkable: he makes a man whose job is fundamentally coercive into the film's emotional heart. His scenes with Madison in the film's second half are where Anora becomes something genuinely great.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">8.7</div></div>
+        <div><div class="score-verdict">Highly Recommended</div><div class="score-stars-lg">★★★★½</div></div>
+      </div>
+      <p>Anora is Sean Baker's best film and one of the best films of 2024. The Palme d'Or was richly deserved. Funny, chaotic, tender, and ultimately devastating — this is exactly the kind of cinema that reminds you why the medium matters.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+        <div class="more-card" onclick="goTo('review-realpain')"><div class="more-card-img">💔</div><div class="more-card-body"><div class="more-card-title">A Real Pain</div><div class="more-card-score">★★★★ · 8.4</div></div></div>
+        <div class="more-card" onclick="goTo('review-conclave')"><div class="more-card-img">🎭</div><div class="more-card-body"><div class="more-card-title">Conclave</div><div class="more-card-score">★★★★ · 8.1</div></div></div>
+        <div class="more-card" onclick="goTo('review-flow')"><div class="more-card-img">🌊</div><div class="more-card-body"><div class="more-card-title">Flow</div><div class="more-card-score">★★★★★ · 8.9</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEW: FLOW ═══════════════════ -->
+<div id="page-review-flow" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🌊</span><span class="review-poster-name">Flow</span><div class="review-score-badge">8.9</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Animation</span><span class="tag t-year">2024</span><span class="tag t-time">84 min</span></div>
+        <h1 class="review-title">Flow</h1>
+        <p class="review-director">Directed by <span>Gints Zilbalodis</span> · Latvia/Belgium/France</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-verdict">"A wordless miracle — the most purely cinematic animated film in years, and one of the year's very best."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>There is no dialogue in Flow. No explanatory captions, no character names, no exposition. Gints Zilbalodis trusts his images completely, and his images reward that trust completely. The result is one of the most purely cinematic experiences of the year — a film that could only work as a film, that uses the specific grammar of cinema to tell a story that words would only diminish.</p>
+      <h3>The Story — Such As It Is</h3>
+      <p>A black cat, solitary and self-sufficient, is suddenly confronted with a world being swallowed by water. The flood rises, and survival requires the cat to join an unlikely group of animal companions — a capybara, a lemur, a dog, a secretary bird — on a boat that drifts through a drowned world. That's it. That's the whole film. And somehow it's everything.</p>
+      <h3>The Animation</h3>
+      <p>Flow was made on a tiny budget using Blender, an open-source animation tool, by Zilbalodis and a small team. The result looks nothing like a low-budget production. The water, the light, the animal movement — all of it has a tactile, almost physical quality that puts much bigger productions to shame. This is what happens when artistic vision is more important than resources.</p>
+      <blockquote>"Flow reminds you that animation is not a genre — it is a medium, and in the right hands it can do things no other medium can."</blockquote>
+      <h3>The Emotional Impact</h3>
+      <p>The film is, at its heart, a story about a creature who has never needed anyone learning that survival requires trust. The cat's arc is simple and universal and, by the film's final sequence, absolutely devastating. You will not expect to cry at an animated Latvian film about a cat. You will cry at an animated Latvian film about a cat.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">8.9</div></div>
+        <div><div class="score-verdict">Essential — a modern animated masterpiece</div><div class="score-stars-lg">★★★★★</div></div>
+      </div>
+      <p>Flow is a genuine treasure — a film made with enormous technical skill and even greater emotional intelligence. See it with the best sound system you can find and give it your complete attention. It will repay you generously.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+        <div class="more-card" onclick="goTo('review-anora')"><div class="more-card-img">🌸</div><div class="more-card-body"><div class="more-card-title">Anora</div><div class="more-card-score">★★★★½ · 8.7</div></div></div>
+        <div class="more-card" onclick="goTo('review-nickelboys')"><div class="more-card-img">🌙</div><div class="more-card-body"><div class="more-card-title">Nickel Boys</div><div class="more-card-score">★★★★½ · 8.6</div></div></div>
+        <div class="more-card" onclick="goTo('review-realpain')"><div class="more-card-img">💔</div><div class="more-card-body"><div class="more-card-title">A Real Pain</div><div class="more-card-score">★★★★ · 8.4</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEW: A REAL PAIN ═══════════════════ -->
+<div id="page-review-realpain" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">💔</span><span class="review-poster-name">A Real Pain</span><div class="review-score-badge">8.4</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Drama · Comedy</span><span class="tag t-year">2024</span><span class="tag t-time">90 min</span></div>
+        <h1 class="review-title">A Real Pain</h1>
+        <p class="review-director">Directed by <span>Jesse Eisenberg</span> · Starring <span>Jesse Eisenberg, Kieran Culkin</span></p>
+        <div class="review-stars">★★★★</div>
+        <p class="review-verdict">"A gem of a film — 90 minutes of remarkable grace, grief, and the complicated business of being alive."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>Jesse Eisenberg's second film as writer-director is the kind of small movie that quietly devastates you. At 90 minutes, it never outstays its welcome, never reaches for false profundity, and trusts its two central performances to carry everything — which they do, effortlessly.</p>
+      <h3>The Story</h3>
+      <p>Benji (Kieran Culkin) and David (Jesse Eisenberg) are cousins who barely know each other anymore. They've agreed to travel to Poland together to visit the sites connected to their recently deceased grandmother — a Holocaust survivor who never discussed what she went through. The trip, conducted as part of a small tour group, is both a tribute and an overdue reckoning between two men who once were close.</p>
+      <h3>Kieran Culkin</h3>
+      <p>This is Culkin's film. As Benji — charismatic, irresponsible, deeply unhappy beneath all the charm — he delivers one of the performances of the year. Benji is the kind of person who makes every room he enters more alive and more uncomfortable simultaneously. Culkin makes you love him and dread him in equal measure, often within the same scene. His Oscar win was entirely deserved.</p>
+      <blockquote>"The best double-act in cinema last year: two men who remember each other differently, discovering they were both right."</blockquote>
+      <h3>The Weight of History</h3>
+      <p>Eisenberg is not making a film about the Holocaust, exactly — he is making a film about what it means to be the grandchildren of survivors, to carry the knowledge of enormous suffering while living ordinary, comfortable lives. The tour group sequences, set in the actual sites of Jewish life and death in Poland, handle this material with a lightness of touch that never trivialises and never lectures.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">8.4</div></div>
+        <div><div class="score-verdict">Highly Recommended</div><div class="score-stars-lg">★★★★</div></div>
+      </div>
+      <p>A Real Pain is one of the year's best films and one of its most accessible. If you have 90 minutes and want to see something that will stay with you for days, this is your film. Seek it out.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-anora')"><div class="more-card-img">🌸</div><div class="more-card-body"><div class="more-card-title">Anora</div><div class="more-card-score">★★★★½ · 8.7</div></div></div>
+        <div class="more-card" onclick="goTo('review-conclave')"><div class="more-card-img">🎭</div><div class="more-card-body"><div class="more-card-title">Conclave</div><div class="more-card-score">★★★★ · 8.1</div></div></div>
+        <div class="more-card" onclick="goTo('review-substance')"><div class="more-card-img">🔬</div><div class="more-card-body"><div class="more-card-title">The Substance</div><div class="more-card-score">★★★★ · 8.2</div></div></div>
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEW: CONCLAVE ═══════════════════ -->
+<div id="page-review-conclave" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🎭</span><span class="review-poster-name">Conclave</span><div class="review-score-badge">8.1</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Thriller · Drama</span><span class="tag t-year">2024</span><span class="tag t-time">120 min</span></div>
+        <h1 class="review-title">Conclave</h1>
+        <p class="review-director">Directed by <span>Edward Berger</span> · Starring <span>Ralph Fiennes, Stanley Tucci, John Lithgow</span></p>
+        <div class="review-stars">★★★★</div>
+        <p class="review-verdict">"Smart, controlled, and audacious — the best papal thriller since The Name of the Rose."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>Edward Berger follows up All Quiet on the Western Front with something entirely different and entirely impressive: a tightly coiled thriller set entirely within the Vatican, during the election of a new Pope. Where All Quiet was vast and elemental, Conclave is claustrophobic and cerebral — a film of whispers, corridors, and carefully concealed ambition.</p>
+      <h3>The Setup</h3>
+      <p>Cardinal Lawrence (Ralph Fiennes) is charged with overseeing the conclave following the sudden death of the Pope. As the cardinals gather to elect a successor, secrets begin to emerge — about the candidates, about the Church, and about Lawrence himself. Berger keeps the procedural mechanics clear and engaging while building toward a revelation that the film earns completely.</p>
+      <h3>Ralph Fiennes</h3>
+      <p>Fiennes is one of the greatest living actors and he is at the top of his game here. Lawrence is a man whose faith is genuine and genuinely complicated — a man who loves the Church and sees its failures clearly. Fiennes plays the internal conflict without ever making it external, which is exactly right for a film about men trained to conceal their thoughts.</p>
+      <blockquote>"Conclave is exactly as good as its cast deserves. Which is to say: very good indeed."</blockquote>
+      <h3>The Twist</h3>
+      <p>The film's final revelation has divided audiences and critics. Some find it gratuitous; others find it the film's most radical and compassionate gesture. We are firmly in the latter camp. Without spoiling it: Berger and screenwriter Peter Straughan have thought seriously about what the twist means and what it says about faith, identity, and the institution of the Church. It is not a cheap trick.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">8.1</div></div>
+        <div><div class="score-verdict">Highly Recommended</div><div class="score-stars-lg">★★★★</div></div>
+      </div>
+      <p>Conclave is intelligent, beautifully acted, and more daring than it first appears. It is the rare prestige thriller that actually has something to say. Seek it out.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+        <div class="more-card" onclick="goTo('review-anora')"><div class="more-card-img">🌸</div><div class="more-card-body"><div class="more-card-title">Anora</div><div class="more-card-score">★★★★½ · 8.7</div></div></div>
+        <div class="more-card" onclick="goTo('review-realpain')"><div class="more-card-img">💔</div><div class="more-card-body"><div class="more-card-title">A Real Pain</div><div class="more-card-score">★★★★ · 8.4</div></div></div>
+        <div class="more-card" onclick="goTo('review-substance')"><div class="more-card-img">🔬</div><div class="more-card-body"><div class="more-card-title">The Substance</div><div class="more-card-score">★★★★ · 8.2</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEW: THE SUBSTANCE ═══════════════════ -->
+<div id="page-review-substance" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🔬</span><span class="review-poster-name">The Substance</span><div class="review-score-badge">8.2</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Body Horror · Satire</span><span class="tag t-year">2024</span><span class="tag t-time">141 min</span></div>
+        <h1 class="review-title">The Substance</h1>
+        <p class="review-director">Directed by <span>Coralie Fargeat</span> · Starring <span>Demi Moore, Margaret Qualley</span></p>
+        <div class="review-stars">★★★★</div>
+        <p class="review-verdict">"A ferocious, funny, and deeply uncomfortable film about what we do to women who dare to age."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>Coralie Fargeat's second feature is an assault — on the eyes, on the stomach, and on a culture that demands women be perpetually young, beautiful, and available. It is also extremely funny, which is not something you can say about many films that end as this one ends.</p>
+      <h3>The Premise</h3>
+      <p>Elisabeth Sparkle (Demi Moore) is a celebrity fitness instructor whose show is cancelled on her fiftieth birthday because she is deemed too old. She discovers a mysterious substance that allows her to create a younger version of herself — Sue (Margaret Qualley) — who takes over her career. The rules are simple: Elisabeth and Sue must share time, alternating weekly. Breaking the rules has consequences.</p>
+      <h3>Demi Moore</h3>
+      <p>Moore has been brave in interviews about what it meant to make this film — about her own history with Hollywood's ageism, about the courage it required to play these scenes. That courage is visible in every frame. This is the most exposed, vulnerable, and powerful work of her career. The scenes that require it most are the hardest to watch and the most necessary.</p>
+      <blockquote>"Fargeat takes the premise to its absolute logical conclusion, and the conclusion is horrifying in all the right ways."</blockquote>
+      <h3>The Third Act</h3>
+      <p>Without giving details: the film's final act is one of the most extreme things to appear in mainstream cinema in years. Fargeat commits completely, and the film is better for it. Some will find it excessive. We would argue that excess is precisely the point — that the film is showing us, in grotesque exaggeration, something that is already grotesque.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">8.2</div></div>
+        <div><div class="score-verdict">Recommended — not for the faint-hearted</div><div class="score-stars-lg">★★★★</div></div>
+      </div>
+      <p>The Substance is exactly what it needs to be: too much, on purpose, making a point that couldn't be made any other way. Approach with an empty stomach and an open mind.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+        <div class="more-card" onclick="goTo('review-conclave')"><div class="more-card-img">🎭</div><div class="more-card-body"><div class="more-card-title">Conclave</div><div class="more-card-score">★★★★ · 8.1</div></div></div>
+        <div class="more-card" onclick="goTo('review-sinners')"><div class="more-card-img">🎬</div><div class="more-card-body"><div class="more-card-title">Sinners</div><div class="more-card-score">★★★★★ · 9.2</div></div></div>
+        <div class="more-card" onclick="goTo('review-flow')"><div class="more-card-img">🌊</div><div class="more-card-body"><div class="more-card-title">Flow</div><div class="more-card-score">★★★★★ · 8.9</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEW: GLADIATOR II ═══════════════════ -->
+<div id="page-review-gladiator2" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🤼</span><span class="review-poster-name">Gladiator II</span><div class="review-score-badge">7.2</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Action · Epic</span><span class="tag t-year">2024</span><span class="tag t-time">148 min</span></div>
+        <h1 class="review-title">Gladiator II</h1>
+        <p class="review-director">Directed by <span>Ridley Scott</span> · Starring <span>Paul Mescal, Denzel Washington, Pedro Pascal</span></p>
+        <div class="review-stars">★★★½</div>
+        <p class="review-verdict">"Entertaining and hollow in roughly equal measure — saved entirely by Denzel Washington's magnificent scene-theft."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>Nobody needed a Gladiator sequel. The original ended definitively; Maximus died; the story was complete. Twenty-four years later, Ridley Scott has made one anyway, and the result is exactly what you would expect from a sequel nobody needed: technically impressive, occasionally thrilling, emotionally hollow, and redeemed entirely by one extraordinary performance that has absolutely no business being in this film.</p>
+      <h3>The Story</h3>
+      <p>Lucius (Paul Mescal), the grandson of Marcus Aurelius, is captured and forced into gladiatorial combat. He finds himself caught between the machinations of the Roman political class and the ambitions of Macrinus (Denzel Washington), a formerly enslaved man who has risen to enormous power. The plot is functional at best — a series of escalating arena sequences connected by political intrigue that never quite convinces.</p>
+      <h3>Paul Mescal</h3>
+      <p>Mescal is a genuinely great actor — his work in Aftersun and All of Us Strangers makes that clear — but he is miscast here, or rather the film is miscast around him. He gives it everything he has physically and emotionally, and there are individual scenes where you see what the film wanted to be. But the script gives him little to work with emotionally, and the film never finds his equivalent of Crowe's "Are you not entertained?"</p>
+      <blockquote>"Denzel Washington plays Macrinus as though he is in a completely different and considerably better film. The good news is that he brings that film with him."</blockquote>
+      <h3>Denzel Washington</h3>
+      <p>The performance that saves this film and elevates it above mere competence. Washington plays Macrinus as a creature of pure theatrical villainy — every gesture calibrated, every line reading a small performance in itself. He appears to be having the time of his life, and the film comes alive completely whenever he's on screen.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">7.2</div></div>
+        <div><div class="score-verdict">Worth watching for Washington alone</div><div class="score-stars-lg">★★★½</div></div>
+      </div>
+      <p>Gladiator II is the cinematic equivalent of a lavish meal that doesn't quite satisfy. Technically impressive, frequently entertaining, and ultimately disposable. See it for Denzel. See the original again afterwards.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-dune2')"><div class="more-card-img">🌌</div><div class="more-card-body"><div class="more-card-title">Dune: Part Two</div><div class="more-card-score">★★★★ · 7.9</div></div></div>
+        <div class="more-card" onclick="goTo('review-sinners')"><div class="more-card-img">🎬</div><div class="more-card-body"><div class="more-card-title">Sinners</div><div class="more-card-score">★★★★★ · 9.2</div></div></div>
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+        <div class="more-card" onclick="goTo('review-conclave')"><div class="more-card-img">🎭</div><div class="more-card-body"><div class="more-card-title">Conclave</div><div class="more-card-score">★★★★ · 8.1</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEW: NICKEL BOYS ═══════════════════ -->
+<div id="page-review-nickelboys" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🌙</span><span class="review-poster-name">Nickel Boys</span><div class="review-score-badge">8.6</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Drama</span><span class="tag t-year">2024</span><span class="tag t-time">140 min</span></div>
+        <h1 class="review-title">Nickel Boys</h1>
+        <p class="review-director">Directed by <span>RaMell Ross</span> · Starring <span>Ethan Herisse, Brandon Wilson, Aunjanue Ellis-Taylor</span></p>
+        <div class="review-stars">★★★★½</div>
+        <p class="review-verdict">"A formally radical, deeply moving film about injustice — one of the most important American films of the year."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>RaMell Ross's Nickel Boys is not a conventional adaptation of Colson Whitehead's Pulitzer Prize-winning novel, and it is all the better for it. Ross — whose debut documentary Hale County This Morning, This Evening remains one of the great American films of the 2010s — brings a radical formal approach to material that might have been made into something merely important. Instead, he has made something genuinely extraordinary.</p>
+      <h3>The Formal Approach</h3>
+      <p>The film is shot almost entirely in first-person perspective — we see the world through the eyes of its protagonists, Elwood and Turner, two young Black men who end up at a brutal reform school in 1960s Florida. This approach sounds like a gimmick and is instead a revelation. By making us inhabit these bodies, Ross makes the injustice inflicted on them personal in a way that no conventional dramatic filming could achieve.</p>
+      <h3>The Performances</h3>
+      <p>Because of the film's formal choices, the performances work differently than in conventional films. Ethan Herisse and Brandon Wilson have to convey character through voice, movement, the way their characters hold themselves — and both are exceptional. Aunjanue Ellis-Taylor, as Elwood's grandmother, has less screen time than either lead and is somehow the film's emotional centre.</p>
+      <blockquote>"Ross does not let you be a spectator. He puts you inside the injustice, and the effect is permanently uncomfortable in exactly the right way."</blockquote>
+      <h3>The Novel vs The Film</h3>
+      <p>Readers of Whitehead's novel will find that Ross takes significant liberties — compressing, restructuring, and finding cinematic equivalents for literary effects that could not otherwise be translated. All of these choices are correct. This is adaptation as transformation, not transcription.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">8.6</div></div>
+        <div><div class="score-verdict">Essential viewing</div><div class="score-stars-lg">★★★★½</div></div>
+      </div>
+      <p>Nickel Boys is among the best films of 2024 and one of the most formally innovative American films in years. See it, discuss it, and read the novel it is based on. Both reward the time completely.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+        <div class="more-card" onclick="goTo('review-anora')"><div class="more-card-img">🌸</div><div class="more-card-body"><div class="more-card-title">Anora</div><div class="more-card-score">★★★★½ · 8.7</div></div></div>
+        <div class="more-card" onclick="goTo('review-realpain')"><div class="more-card-img">💔</div><div class="more-card-body"><div class="more-card-title">A Real Pain</div><div class="more-card-score">★★★★ · 8.4</div></div></div>
+        <div class="more-card" onclick="goTo('review-flow')"><div class="more-card-img">🌊</div><div class="more-card-body"><div class="more-card-title">Flow</div><div class="more-card-score">★★★★★ · 8.9</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEW: DUNE PART TWO ═══════════════════ -->
+<div id="page-review-dune2" class="page">
+  <div class="review-page">
+    <div class="review-hero">
+      <div class="review-poster"><span class="review-poster-icon">🌌</span><span class="review-poster-name">Dune: Part Two</span><div class="review-score-badge">7.9</div></div>
+      <div class="review-meta">
+        <div class="back-btn" onclick="goTo('home');goSection('reviews')">← Back to Reviews</div>
+        <div class="feat-tags"><span class="tag t-genre">Sci-Fi · Epic</span><span class="tag t-year">2024</span><span class="tag t-time">166 min</span></div>
+        <h1 class="review-title">Dune: Part Two</h1>
+        <p class="review-director">Directed by <span>Denis Villeneuve</span> · Starring <span>Timothée Chalamet, Zendaya, Austin Butler</span></p>
+        <div class="review-stars">★★★★</div>
+        <p class="review-verdict">"A visually staggering epic that refuses to be the hero's journey it appears to be — bold, beautiful, and demanding."</p>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="ad-wrap" style="padding:0 0 2rem"><div class="ad-slot" style="min-height:90px;"><!-- ADSENSE -->Advertisement</div></div>
+      <p>Denis Villeneuve's completion of his Dune adaptation is a genuine achievement — a mainstream studio epic that refuses to provide the emotional satisfactions the mainstream typically demands, and that is the better and more honest for it. Paul Atreides is not a hero. Villeneuve knows this, Frank Herbert knew this, and the film trusts you to know it too.</p>
+      <h3>The Visual Achievement</h3>
+      <p>Whatever reservations one might have about the film's emotional temperature, Dune: Part Two is an extraordinary piece of visual cinema. Greig Fraser's cinematography, particularly the sequences filmed in monochrome for the Harkonnen homeworld, is among the best work in contemporary blockbuster filmmaking. The sandworm sequences are simply magnificent — among the most awe-inspiring images in recent science fiction cinema.</p>
+      <h3>The Cast</h3>
+      <p>Chalamet has grown into the role considerably since Part One — there is a coldness creeping into his Paul that the film requires, and he navigates the character's messianic arc with intelligence. Zendaya has more to do here than in the first film and rises to it. Austin Butler as Feyd-Rautha steals every scene he's in — his black-and-white introduction sequence is one of the year's best individual scenes.</p>
+      <blockquote>"Villeneuve understands that Dune is a story about the danger of chosen ones — and refuses to pretend otherwise."</blockquote>
+      <h3>The Ending</h3>
+      <p>Dune: Part Two ends on a note of deliberate discomfort. Paul has won — and his victory is a catastrophe. Villeneuve commits to this reading completely, and it is the film's bravest decision. Some audiences have found it unsatisfying. It is, in fact, the only honest ending available.</p>
+      <h3>Verdict</h3>
+      <div class="review-score-box">
+        <div><div class="score-label">Our Score</div><div class="score-big">7.9</div></div>
+        <div><div class="score-verdict">Recommended — a modern sci-fi epic</div><div class="score-stars-lg">★★★★</div></div>
+      </div>
+      <p>Dune: Part Two is one of the great science fiction epics of the modern era, even if it lacks the intimate emotional charge of the very best films of 2024. See it on the largest screen available and give it your full attention.</p>
+    </div>
+    <div class="more-reviews">
+      <h3>More Reviews</h3>
+      <div class="more-grid">
+        <div class="more-card" onclick="goTo('review-gladiator2')"><div class="more-card-img">🤼</div><div class="more-card-body"><div class="more-card-title">Gladiator II</div><div class="more-card-score">★★★½ · 7.2</div></div></div>
+        <div class="more-card" onclick="goTo('review-brutalist')"><div class="more-card-img">🏛️</div><div class="more-card-body"><div class="more-card-title">The Brutalist</div><div class="more-card-score">★★★★★ · 9.3</div></div></div>
+        <div class="more-card" onclick="goTo('review-sinners')"><div class="more-card-img">🎬</div><div class="more-card-body"><div class="more-card-title">Sinners</div><div class="more-card-score">★★★★★ · 9.2</div></div></div>
+        <div class="more-card" onclick="goTo('review-conclave')"><div class="more-card-img">🎭</div><div class="more-card-body"><div class="more-card-title">Conclave</div><div class="more-card-score">★★★★ · 8.1</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
 <div id="page-about" class="page">
-  <div style="max-width:800px; margin:0 auto;">
-    <span class="section-label">Who We Are</span>
+  <div class="inner-page"><div class="section-inner-sm">
+    <span class="eyebrow">Who We Are</span>
     <h1>About Daily Dose Movies</h1>
-    <div class="divider"></div>
-    <p>Daily Dose Movies is an independent film review website dedicated to serious, original, and accessible film criticism. We believe cinema is one of the most powerful art forms in human history — and that every film, big or small, deserves honest, thoughtful engagement.</p>
-    <p>We started this site because we were tired of reading reviews that felt like marketing copy, or endless numbered lists with no real analysis. We wanted a place where someone genuinely passionate about film could write about what they watched and why it mattered.</p>
-
-    <h2>What We Cover</h2>
-    <p>We cover everything — new releases in cinemas, streaming originals, international films, classic retrospectives, and overlooked hidden gems. No genre bias. No studio allegiances. If it's a film worth discussing, we'll discuss it.</p>
-
+    <div class="red-line"></div>
+    <p>Daily Dose Movies is an independent film criticism website dedicated to original, in-depth, and accessible writing about cinema. We believe films are among the most powerful cultural artefacts human beings produce — and that they deserve to be taken seriously, whatever their genre or budget.</p>
+    <p>We started this site because we were tired of two things: breathless promotional reviews that mistake enthusiasm for criticism, and dismissive takes that mistake cynicism for intelligence. We wanted something in between — honest, passionate, properly argued film writing that trusts the reader to have a brain.</p>
+    <h2>What We Believe</h2>
+    <p>We believe a great horror film deserves the same critical attention as a prestige drama. We believe world cinema is as important as Hollywood. We believe negative reviews are as useful as positive ones, and that five-star inflation helps nobody. And we believe that writing about films — really writing about them — is its own form of art.</p>
     <h2>How We Rate Films</h2>
-    <p>Our ratings run from 1 to 10 and are accompanied by full written reviews of at least 500 words. A 5 is genuinely average, not a disaster. A 10 is genuinely rare. We don't give 8s out of politeness. Every score is earned.</p>
+    <p>Our ratings run from 1 to 10 and are always accompanied by a full written review of at least 500 words. A 5 is genuinely average — not a failure. A 10 is extraordinarily rare. Every score is earned through argument, not assigned by mood.</p>
     <ul>
-      <li><strong>9–10:</strong> Essential cinema. Watch it immediately.</li>
-      <li><strong>7–8:</strong> Highly recommended with minor reservations.</li>
-      <li><strong>5–6:</strong> Worth watching for specific audiences.</li>
-      <li><strong>3–4:</strong> Flawed but occasionally interesting.</li>
-      <li><strong>1–2:</strong> Genuinely poor filmmaking.</li>
+      <li><strong>9 – 10:</strong> Essential cinema. Seek it out immediately.</li>
+      <li><strong>7 – 8:</strong> Highly recommended, with minor reservations noted.</li>
+      <li><strong>5 – 6:</strong> Worthwhile for specific audiences or curious minds.</li>
+      <li><strong>3 – 4:</strong> Significantly flawed but occasionally interesting.</li>
+      <li><strong>1 – 2:</strong> Genuinely poor filmmaking we cannot recommend.</li>
     </ul>
-
-    <h2>Who Writes Here</h2>
-    <p>Daily Dose Movies is run by a small team of film lovers who have been watching, discussing, and writing about cinema for over a decade. We have no professional obligation to be kind to studios, no advertising relationships that influence our reviews, and no interest in clickbait.</p>
-    <p>We just love movies — and we hope you do too.</p>
-
-    <div class="about-stats" style="margin-top:3rem;">
-      <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Reviews Published</span></div>
-      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Curated Lists</span></div>
-      <div class="stat"><span class="stat-num">10K+</span><span class="stat-label">Monthly Readers</span></div>
+    <h2>Our Independence</h2>
+    <p>Daily Dose Movies is editorially independent. We receive no payment from studios, distributors, or PR companies in exchange for coverage. We support our running costs through display advertising via Google AdSense. This has no influence on our editorial decisions.</p>
+    <h2>Who Runs This Site</h2>
+    <p>Daily Dose Movies is run by a small group of film lovers who have been watching, writing about, and arguing passionately over cinema for over a decade. We take this seriously, and we think that shows in the writing.</p>
+    <div class="stats-row" style="max-width:480px;margin-top:3rem">
+      <div class="stat-box"><span class="stat-n">500+</span><span class="stat-l">Reviews</span></div>
+      <div class="stat-box"><span class="stat-n">50+</span><span class="stat-l">Guides</span></div>
+      <div class="stat-box"><span class="stat-n">10K+</span><span class="stat-l">Readers</span></div>
     </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- ══════════════════ CONTACT PAGE ══════════════════ -->
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
 <div id="page-contact" class="page">
-  <div style="max-width:1000px; margin:0 auto;">
-    <span class="section-label">Get in Touch</span>
+  <div class="inner-page"><div style="max-width:1000px;margin:0 auto">
+    <span class="eyebrow">Reach Out</span>
     <h1>Contact Us</h1>
-    <div class="divider"></div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p>Have a film recommendation? Want to write for us? Got feedback on a review? We'd love to hear from you.</p>
-        <p>We read every message, though we can't always reply to each one individually. For press inquiries or collaboration proposals, we aim to respond within 3 business days.</p>
-        <h2>Email</h2>
-        <p><a href="mailto:hello@dailydosemovies.store">hello@dailydosemovies.store</a></p>
-        <h2>Social Media</h2>
-        <p>Follow us for daily film recommendations, quick takes, and the occasional heated debate about whether <em>The Dark Knight</em> is truly a masterpiece.</p>
+    <div class="red-line"></div>
+    <div class="contact-2col">
+      <div>
+        <div class="c-info-block"><h3>We'd Love to Hear From You</h3><p>Whether you have a film recommendation, a disagreement with one of our reviews, or a proposal to collaborate — drop us a message.</p></div>
+        <div class="c-info-block"><h3>Email</h3><p><a href="mailto:hello@dailydosemovies.store">hello@dailydosemovies.store</a></p></div>
+        <div class="c-info-block"><h3>Press &amp; Collaboration</h3><p>For press screener requests, collaboration proposals, or advertising enquiries, please include "Press" or "Collaboration" in your subject line. We aim to respond within 3 business days.</p></div>
+        <div class="c-info-block"><h3>Writing for Us</h3><p>We occasionally welcome guest contributors. Send us a sample review and a short note about the films you care about most.</p></div>
       </div>
-      <div class="contact-form">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Jane Smith">
+      <div class="c-form">
+        <div class="c-group"><label>Your Name *</label><input type="text" placeholder="Jane Smith"></div>
+        <div class="c-group"><label>Email Address *</label><input type="email" placeholder="jane@example.com"></div>
+        <div class="c-group"><label>Subject</label>
+          <select>
+            <option value="">Select a topic...</option>
+            <option>General Enquiry</option>
+            <option>Film Recommendation</option>
+            <option>Review Feedback</option>
+            <option>Press / Screener Request</option>
+            <option>Collaboration Proposal</option>
+            <option>Writing for Daily Dose Movies</option>
+            <option>Advertising Enquiry</option>
+          </select>
         </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="jane@example.com">
-        </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <input type="text" placeholder="Film recommendation, feedback, etc.">
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell us what's on your mind..."></textarea>
-        </div>
-        <button class="form-submit">Send Message</button>
+        <div class="c-group"><label>Message *</label><textarea placeholder="Tell us what's on your mind..."></textarea></div>
+        <button class="c-submit">Send Message</button>
       </div>
     </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- ══════════════════ PRIVACY POLICY PAGE ══════════════════ -->
+<!-- ═══════════════════ PRIVACY ═══════════════════ -->
 <div id="page-privacy" class="page">
-  <div style="max-width:780px; margin:0 auto;">
-    <span class="section-label">Legal</span>
+  <div class="inner-page"><div class="section-inner-sm">
+    <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <div class="divider"></div>
-    <p><em>Last updated: March 2026</em></p>
-    <p>Daily Dose Movies ("we", "us", or "our") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard data when you visit <strong>dailydosemovies.store</strong>.</p>
-
+    <div class="red-line"></div>
+    <p><em>Last updated: March 2026. This policy applies to dailydosemovies.store.</em></p>
+    <p>Daily Dose Movies ("we", "us", "our") is committed to protecting the privacy of our visitors. This Privacy Policy explains what information we collect, how we use it, and your rights. By using our website, you agree to the practices described here.</p>
     <h2>1. Information We Collect</h2>
-    <p>We may collect the following types of information:</p>
     <ul>
-      <li><strong>Usage Data:</strong> Pages visited, time on site, browser type, device information, and referring URLs — collected automatically via analytics tools.</li>
-      <li><strong>Email Address:</strong> If you subscribe to our newsletter or contact us directly.</li>
-      <li><strong>Cookies:</strong> Small data files stored on your device to improve site functionality and personalise your experience.</li>
+      <li><strong>Usage and Analytics Data:</strong> IP address, browser type, operating system, referring URLs, pages visited, and time on pages — collected via Google Analytics in anonymised form.</li>
+      <li><strong>Email Address:</strong> If you subscribe to our newsletter or contact us via our contact form.</li>
+      <li><strong>Cookies:</strong> Small text files stored on your device to improve site functionality and enable advertising.</li>
     </ul>
-
     <h2>2. How We Use Your Information</h2>
     <ul>
-      <li>To operate and improve the website</li>
-      <li>To send newsletters (only if you have opted in)</li>
-      <li>To respond to enquiries sent through our contact form</li>
+      <li>To operate and improve our website</li>
+      <li>To send our newsletter to subscribers who have opted in</li>
+      <li>To respond to enquiries submitted via our contact form</li>
       <li>To display relevant advertising through Google AdSense</li>
-      <li>To analyse site traffic and user behaviour using Google Analytics</li>
+      <li>To analyse traffic and user behaviour via Google Analytics</li>
     </ul>
-
     <h2>3. Cookies and Advertising</h2>
-    <p>We use cookies for analytics and advertising purposes. Google AdSense, a third-party advertising service, may use cookies to serve ads based on your prior visits to this and other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites on the internet.</p>
-    <p>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" style="color:var(--gold);" target="_blank">Google's Ads Settings</a>. You can also opt out of a third-party vendor's use of cookies for personalised advertising by visiting <a href="http://www.aboutads.info/choices/" style="color:var(--gold);" target="_blank">aboutads.info</a>.</p>
-
+    <p><strong>Analytics Cookies (Google Analytics):</strong> Help us understand how visitors use our site. Data is collected anonymously. You can opt out via the Google Analytics opt-out browser add-on.</p>
+    <p><strong>Advertising Cookies (Google AdSense):</strong> We display advertisements through Google AdSense. Google uses cookies to serve ads based on your prior visits to this and other websites. You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google's Ads Settings</a> or the <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener">Digital Advertising Alliance opt-out page</a>.</p>
     <h2>4. Third-Party Services</h2>
-    <p>We use the following third-party services which may collect data independently:</p>
     <ul>
-      <li><strong>Google Analytics:</strong> For website traffic analysis</li>
-      <li><strong>Google AdSense:</strong> For displaying advertisements</li>
+      <li><strong>Google Analytics</strong> — website traffic analysis. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+      <li><strong>Google AdSense</strong> — display advertising. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
     </ul>
-    <p>These services have their own privacy policies governing their use of data.</p>
-
     <h2>5. Data Sharing</h2>
-    <p>We do not sell, trade, or rent your personal information to third parties. We may share anonymised, aggregated data that does not identify individuals for analytical purposes.</p>
-
+    <p>We do not sell, rent, or trade your personal information to any third parties. We may share anonymised, aggregated data for analytical purposes.</p>
     <h2>6. Data Retention</h2>
-    <p>We retain email addresses for newsletter purposes until you unsubscribe. Contact form submissions may be retained for up to 12 months for reference purposes.</p>
-
+    <p>Newsletter email addresses are retained until you unsubscribe. Contact form submissions are retained for up to 12 months.</p>
     <h2>7. Your Rights</h2>
-    <p>Depending on your location, you may have rights to access, correct, or delete personal data we hold about you. To exercise these rights, please contact us at <a href="mailto:hello@dailydosemovies.store" style="color:var(--gold);">hello@dailydosemovies.store</a>.</p>
-
+    <ul>
+      <li>The right to access personal data we hold about you</li>
+      <li>The right to correct inaccurate personal data</li>
+      <li>The right to request deletion of your personal data</li>
+      <li>The right to withdraw consent at any time</li>
+    </ul>
+    <p>To exercise these rights, contact us at <a href="mailto:hello@dailydosemovies.store">hello@dailydosemovies.store</a>.</p>
     <h2>8. Children's Privacy</h2>
-    <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
-
+    <p>Our website is not directed at children under 13. We do not knowingly collect personal information from children under 13.</p>
     <h2>9. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy periodically. We will notify users of significant changes by posting a notice on our website. Your continued use of the site after any changes constitutes acceptance of the updated policy.</p>
-
+    <p>We may update this Privacy Policy at any time. Continued use of the site constitutes acceptance of any changes.</p>
     <h2>10. Contact</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@dailydosemovies.store" style="color:var(--gold);">hello@dailydosemovies.store</a>.</p>
-  </div>
+    <p><strong>Email:</strong> <a href="mailto:hello@dailydosemovies.store">hello@dailydosemovies.store</a><br><strong>Website:</strong> dailydosemovies.store</p>
+  </div></div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div style="max-width:1200px; margin:0 auto;">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="nav-logo" href="#" onclick="showPage('home')">Daily<span style="color:var(--red);">Dose</span>Movies</a>
-        <p>Honest film criticism for people who take cinema seriously — without taking themselves too seriously.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#reviews">Latest Reviews</a></li>
-          <li><a href="#top-picks">Top Picks 2024</a></li>
-          <li><a href="#featured">Featured Film</a></li>
-          <li><a href="#reviews">Genre Guides</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Genres</h4>
-        <ul>
-          <li><a href="#reviews">Drama</a></li>
-          <li><a href="#reviews">Horror</a></li>
-          <li><a href="#reviews">Sci-Fi</a></li>
-          <li><a href="#reviews">World Cinema</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#" onclick="showPage('about')">About Us</a></li>
-          <li><a href="#" onclick="showPage('contact')">Contact</a></li>
-          <li><a href="#" onclick="showPage('privacy')">Privacy Policy</a></li>
-        </ul>
-      </div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo" onclick="goTo('home')">Daily<span>Dose</span>Movies</span>
+      <p>Honest film criticism for people who take cinema seriously — without taking themselves too seriously.</p>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Daily Dose Movies. All rights reserved. dailydosemovies.store</p>
-      <p>Made with ❤️ for cinema lovers</p>
+    <div class="footer-col">
+      <h4>Reviews</h4>
+      <ul>
+        <li><a onclick="goTo('home');goSection('reviews')">Latest Reviews</a></li>
+        <li><a onclick="goTo('home');goSection('top10')">Top 10 of 2024</a></li>
+        <li><a onclick="goTo('home');goSection('guide')">Genre Guides</a></li>
+        <li><a onclick="goTo('home');goSection('featured')">Featured Film</a></li>
+      </ul>
     </div>
+    <div class="footer-col">
+      <h4>Genres</h4>
+      <ul>
+        <li><a onclick="goTo('home');goSection('genres')">Drama</a></li>
+        <li><a onclick="goTo('home');goSection('genres')">Horror</a></li>
+        <li><a onclick="goTo('home');goSection('genres')">Sci-Fi</a></li>
+        <li><a onclick="goTo('home');goSection('genres')">World Cinema</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a onclick="goTo('about')">About Us</a></li>
+        <li><a onclick="goTo('contact')">Contact</a></li>
+        <li><a onclick="goTo('privacy')">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Daily Dose Movies · dailydosemovies.store · All rights reserved.</p>
+    <p>Made with ❤️ for cinema lovers everywhere.</p>
   </div>
 </footer>
 
 <script>
-  function showPage(name) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + name).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+function goTo(page) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+  var el = document.getElementById('page-' + page);
+  if(el) el.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+  document.getElementById('navMenu').classList.remove('open');
+}
+function goSection(id) {
+  setTimeout(function(){
+    var el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 120);
+}
+function toggleNav() {
+  document.getElementById('navMenu').classList.toggle('open');
+}
+window.addEventListener('scroll', function(){
+  var nav = document.getElementById('navbar');
+  nav.style.padding = window.scrollY > 60 ? '0.65rem 5vw' : '1rem 5vw';
+});
 </script>
 </body>
 </html>
